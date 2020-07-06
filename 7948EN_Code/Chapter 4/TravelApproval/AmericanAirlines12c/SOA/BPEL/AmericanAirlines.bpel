@@ -9,15 +9,49 @@
   Purpose: Empty BPEL Process
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 -->
-<process name="AmericanAirlines"
-               targetNamespace="http://xmlns.oracle.com/TravelApproval/AmericanAirlines12c/AmericanAirlines"
-               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
-               xmlns:client="http://xmlns.oracle.com/TravelApproval/AmericanAirlines12c/AmericanAirlines"
-               xmlns:ora="http://schemas.oracle.com/xpath/extension"
-               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+<!--process name="AmericanAirlines" targetNamespace="http://packtpub.com/service/airline/"
+         
+         xmlns:client="http://xmlns.oracle.com/TravelApproval/AmericanAirlines12c/AmericanAirlines"
+          xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
          xmlns:ns1="http://packtpub.com/service/airline/" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
-         xmlns:ui="http://xmlns.oracle.com/soa/designer">
-
+        xmlns:ns7="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ns2="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ns5="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:ns3="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:ns6="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:ns4="http://schemas.oracle.com/xpath/extension/ldap" 
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"-->
+         
+         
+         
+         <process name="AmericanAirlines"
+         targetNamespace="http://packtpub.com/service/airline/"
+         xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:client="http://xmlns.oracle.com/TravelApproval/AmericanAirlines12c/AmericanAirlines"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:ns1="http://packtpub.com/service/airline/"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions" xmlns:ess="http://xmlns.oracle.com/scheduler"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="/onlinestoresdo/common/types/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+         
+         
+         
+         
   <!-- 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      ORCHESTRATION LOGIC                                               
@@ -39,13 +73,59 @@
     <variable name="makeReservation_InputVariable" messageType="ns1:TravelResponseMessage"/>
     <variable name="makeReservation_OutputVariable" messageType="ns1:ReservationResponseMessage"/>
   </variables>
-  
   <sequence name="main">
     <pick name="Pick" createInstance="yes">
       <onMessage bpelx:name="FligthAvailable" variable="inputVariable" partnerLink="TicketService"
-                 portType="ns1:FlightAvailabilityPT" operation="FlightAvailability"></onMessage>
-      <onMessage variable="makeReservation_InputVariable" partnerLink="TicketService" portType="ns1:FlightAvailabilityPT"
-                 operation="MakeReservation" bpelx:name="MakeReservation"></onMessage>
+                 portType="ns1:FlightAvailabilityPT" operation="FlightAvailability">
+        <sequence name="Sequence1">
+          <assign name="setOutput">
+            <copy>
+              <from>$inputVariable.flightTicketRequest/ns1:travelClass</from>
+              <to>$outputVariable.confirmationData/TravelClass</to>
+            </copy>
+            <copy>
+              <from>xp20:format-dateTime(substring-before(string($inputVariable.flightTicketRequest/ns1:flightData/DesiredDepartureDate),'+'),'[Y]-[M01]-[D01]T[h01]:[m01]:[s01]')</from>
+              <to>$outputVariable.confirmationData/ReturnDateTime</to>
+            </copy>
+            <copy>
+              <from>true()</from>
+              <to>$outputVariable.confirmationData/Approved</to>
+            </copy>
+            <copy>
+              <from>xp20:format-dateTime(substring-before(string($inputVariable.flightTicketRequest/ns1:flightData/DesiredDepartureDate),'+'),'[Y]-[M01]-[D01]T[h01]:[m01]:[s01]')</from>
+              <to>$outputVariable.confirmationData/DepartureDateTime</to>
+            </copy>
+            <copy>
+              <from>string('N4325')</from>
+              <to>$outputVariable.confirmationData/FlightNo</to>
+            </copy>
+            <copy>
+              <from>number(435.0)</from>
+              <to>$outputVariable.confirmationData/Price</to>
+            </copy>
+          </assign>
+          <invoke name="callbackClient" partnerLink="TicketService" portType="ns1:FlightCallbackPT"
+                  operation="FlightTicketCallback" inputVariable="outputVariable" bpelx:invokeAsDetail="no"/>
+        </sequence>
+      </onMessage>
+      <onMessage variable="makeReservation_InputVariable" partnerLink="TicketService"
+                 portType="ns1:FlightAvailabilityPT" operation="MakeReservation" bpelx:name="MakeReservation">
+        <sequence name="Sequence2">
+          <assign name="setOutput">
+            <copy>
+              <from>true()</from>
+              <to>$makeReservation_OutputVariable.reservationData/Confirmed</to>
+            </copy>
+            <copy>
+              <from>$makeReservation_InputVariable.confirmationData/FlightNo</from>
+              <to>$makeReservation_OutputVariable.reservationData/FlightNo</to>
+            </copy>
+          </assign>
+          <invoke name="callbackClient" partnerLink="TicketService" portType="ns1:FlightCallbackPT"
+                  operation="MakeReservationCallback" inputVariable="makeReservation_OutputVariable"
+                  bpelx:invokeAsDetail="no"/>
+        </sequence>
+      </onMessage>
     </pick>
   </sequence>
 </process>

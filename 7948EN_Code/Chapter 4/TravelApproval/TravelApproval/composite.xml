@@ -24,6 +24,9 @@
     <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
     <binding.ws port="http://packtpub.com/bpel/travel/#wsdl.endpoint(TravelApprovalService/TravelApprovalPT_pt)"/>
   </service>
+  <property name="originalProductVersion" type="xs:string" many="false">11.0.0.0.0</property>
+  <property name="productVersion" type="xs:string" many="false">12.1.3.0.0</property>
+  <property name="compositeID" type="xs:string" many="false">a6a4ce49-6a7c-4760-8817-cec6a207e4f2</property>
   <component name="TravelApproval">
     <implementation.bpel src="TravelApproval.bpel"/>
     <componentType xmlns="http://xmlns.oracle.com/sca/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"

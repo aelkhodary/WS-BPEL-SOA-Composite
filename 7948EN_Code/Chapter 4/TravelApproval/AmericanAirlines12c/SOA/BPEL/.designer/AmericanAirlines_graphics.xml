@@ -4,14 +4,16 @@
    <annotationfile/>
    <iconize/>
    <partnerlink_locations>
-      <partnerlink name="TicketService" x="12" y="30" side="left"/>
+      <partnerlink name="TicketService" x="3" y="329" side="left"/>
    </partnerlink_locations>
-   <graph_layout viewport="0,0,1135,888" show_swimlanes="true">
+   <graph_layout viewport="0,0,1139,641" show_swimlanes="true">
       <layout_item collapsed="false" xpath="/process" type="process" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence" type="sequence"/>
       <layout_item collapsed="false" xpath="/process/sequence/pick" type="pick"/>
       <layout_item collapsed="false" xpath="/process/sequence/pick/onMessage[1]" type="onMessage"/>
+      <layout_item collapsed="false" xpath="/process/sequence/pick/onMessage[1]/sequence" type="sequence"/>
       <layout_item collapsed="false" xpath="/process/sequence/pick/onMessage[2]" type="onMessage"/>
+      <layout_item collapsed="false" xpath="/process/sequence/pick/onMessage[2]/sequence" type="sequence"/>
    </graph_layout>
    <bookmarks/>
 </graphics>
