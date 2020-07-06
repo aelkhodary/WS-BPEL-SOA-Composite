@@ -1,0 +1,88 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Tue Jul 07 00:24:51 GST 2020
+  Author:  aelkhodary
+  Type: BPEL 2.0 Process
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="DeltaAirlines"
+               targetNamespace="http://packtpub.com/service/airline/"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/TravelApproval/DeltaAirLines12c/DeltaAirlines"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension" xmlns:ns1="http://packtpub.com/service/airline/"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/AirLine.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/AirLineRef.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
+  <partnerLinks>
+    <partnerLink name="client" partnerLinkType="ns1:flightLT" partnerRole="airlineCustomer" myRole="airlineService"/>
+  </partnerLinks>
+  <variables>
+    <variable name="inputVariable" messageType="ns1:FlightTicketRequestMessage"/>
+    <variable name="outputVariable" messageType="ns1:TravelResponseMessage"/>
+    <variable name="makeReservation_InputVariable" messageType="ns1:TravelResponseMessage"/>
+    <variable name="makeReservation_OutputVariable" messageType="ns1:ReservationResponseMessage"/>
+  </variables>
+  <sequence name="main">
+    <pick name="Pick" createInstance="yes">
+      <onMessage variable="inputVariable" partnerLink="client" portType="ns1:FlightAvailabilityPT"
+                 operation="FlightAvailability">
+        <sequence name="Sequence1">
+          <assign name="setOutput">
+            <copy>
+              <from>string('N4533')</from>
+              <to>$outputVariable.confirmationData/FlightNo</to>
+            </copy>
+            <copy>
+              <from>$inputVariable.flightTicketRequest/ns1:travelClass</from>
+              <to>$outputVariable.confirmationData/TravelClass</to>
+            </copy>
+            <copy>
+              <from>number(321.0)</from>
+              <to>$outputVariable.confirmationData/Price</to>
+            </copy>
+            <copy>
+              <from>true()</from>
+              <to>$outputVariable.confirmationData/Approved</to>
+            </copy>
+          </assign>
+          <invoke name="callbackClient" partnerLink="client" portType="ns1:FlightCallbackPT"
+                  operation="FlightTicketCallback" inputVariable="outputVariable" bpelx:invokeAsDetail="no"/>
+        </sequence>
+      </onMessage>
+      <onMessage variable="makeReservation_InputVariable" partnerLink="client" portType="ns1:FlightAvailabilityPT"
+                 operation="MakeReservation">
+        <sequence name="Sequence2">
+          <assign name="setOutput">
+            <copy>
+              <from>$makeReservation_InputVariable.confirmationData/FlightNo</from>
+              <to>$makeReservation_OutputVariable.reservationData/FlightNo</to>
+            </copy>
+            <copy>
+              <from>true()</from>
+              <to>$makeReservation_OutputVariable.reservationData/Confirmed</to>
+            </copy>
+          </assign>
+          <invoke name="callbackClient" partnerLink="client" portType="ns1:FlightCallbackPT"
+                  operation="MakeReservationCallback" inputVariable="makeReservation_OutputVariable"
+                  bpelx:invokeAsDetail="no"/>
+        </sequence>
+      </onMessage>
+    </pick>
+  </sequence>
+</process>
