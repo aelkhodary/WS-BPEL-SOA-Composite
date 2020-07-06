@@ -1,0 +1,51 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Jul 06 16:22:36 GST 2020
+  Author:  aelkhodary
+  Type: BPEL 2.0 Process
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="AmericanAirlines"
+               targetNamespace="http://xmlns.oracle.com/TravelApproval/AmericanAirlines12c/AmericanAirlines"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/TravelApproval/AmericanAirlines12c/AmericanAirlines"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://packtpub.com/service/airline/" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/Airline.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/AirLineRef.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
+  <partnerLinks>
+    <partnerLink name="TicketService" partnerLinkType="ns1:flightLT" partnerRole="airlineCustomer"
+                 myRole="airlineService"/>
+  </partnerLinks>
+  <variables>
+    <variable name="inputVariable" messageType="ns1:FlightTicketRequestMessage"/>
+    <variable name="outputVariable" messageType="ns1:TravelResponseMessage"/>
+    <variable name="makeReservation_InputVariable" messageType="ns1:TravelResponseMessage"/>
+    <variable name="makeReservation_OutputVariable" messageType="ns1:ReservationResponseMessage"/>
+  </variables>
+  
+  <sequence name="main">
+    <pick name="Pick" createInstance="yes">
+      <onMessage bpelx:name="FligthAvailable" variable="inputVariable" partnerLink="TicketService"
+                 portType="ns1:FlightAvailabilityPT" operation="FlightAvailability"></onMessage>
+      <onMessage variable="makeReservation_InputVariable" partnerLink="TicketService" portType="ns1:FlightAvailabilityPT"
+                 operation="MakeReservation" bpelx:name="MakeReservation"></onMessage>
+    </pick>
+  </sequence>
+</process>
