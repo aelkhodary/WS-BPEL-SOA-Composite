@@ -24,7 +24,9 @@
           importType="wsdl"/>
   <service name="travelapproval_ep" ui:wsdlLocation="WSDLs/TravelApprovalWrapper.wsdl">
     <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
-    <binding.ws port="http://packtpub.com/bpel/travel/#wsdl.endpoint(travelapproval_ep/TravelApprovalPT_pt)"/>
+    <binding.ws port="http://packtpub.com/bpel/travel/#wsdl.endpoint(travelapproval_ep/TravelApprovalPT_pt)">
+      <property name="weblogic.wsee.wsat.transaction.flowOption" type="xs:string" many="false">NEVER</property>
+    </binding.ws>
   </service>
   <component name="TravelApproval" version="2.0">
     <implementation.bpel src="BPEL/TravelApproval.bpel"/>
@@ -81,10 +83,6 @@
     </callback>
   </reference>
   <wire>
-    <source.uri>travelapproval_ep</source.uri>
-    <target.uri>TravelApproval/travelapproval</target.uri>
-  </wire>
-  <wire>
     <source.uri>TravelApproval/AmericanAirlines</source.uri>
     <target.uri>AmericanAirlines</target.uri>
   </wire>
@@ -95,5 +93,9 @@
   <wire>
     <source.uri>TravelApproval/DeltaAirlines</source.uri>
     <target.uri>DeltaAirlines</target.uri>
+  </wire>
+  <wire>
+    <source.uri>travelapproval_ep</source.uri>
+    <target.uri>TravelApproval/travelapproval</target.uri>
   </wire>
 </composite>

@@ -112,8 +112,7 @@
           <copy>
             <from variable="TravelRequest" part="travelRequest"
                   query="/client:TravelApproval/employee"/>
-            <to variable="EmployeeTravelStatusRequest" part="employee"
-                query="/ns2:employee"/>
+            <to variable="EmployeeTravelStatusRequest" part="employee" query="/ns2:employee"/>
           </copy>
         </assign>
         <invoke name="EmployeeTravelStatus"
@@ -126,8 +125,7 @@
           <copy>
             <from variable="TravelRequest" part="travelRequest"
                   query="/client:TravelApproval/flightData"/>
-            <to variable="FlightDetails" part="flightTicketRequest"
-                query="/ns1:flightTicketRequest/ns1:flightData"/>
+            <to variable="FlightDetails" part="flightTicketRequest" query="/ns1:flightTicketRequest/ns1:flightData"/>
           </copy>
           <copy>
             <from variable="EmployeeTravelStatusResponse" part="travelClass"
@@ -138,11 +136,9 @@
         </assign>
       </sequence>
     </scope>
-    <scope name="Scope_2">
+    <scope name="CheckFlightAvailability">
       <bpelx:annotation>
-        <bpelx:general>
-          <bpelx:property name="userLabel">CheckFlightAvailability</bpelx:property>
-        </bpelx:general>
+        <bpelx:general/>
       </bpelx:annotation>
       <flow>
         <sequence name="Sequence_1">
@@ -167,11 +163,9 @@
         </sequence>
       </flow>
     </scope>
-    <scope name="Scope_3">
+    <scope name="SelectAirline">
       <bpelx:annotation>
-        <bpelx:general>
-          <bpelx:property name="userLabel">SelectAirline</bpelx:property>
-        </bpelx:general>
+        <bpelx:general/>
       </bpelx:annotation>
       <switch name="Switch_1">
         <case condition="number(bpws:getVariableData('FlightResponseAA','confirmationData','/ns1:confirmationData/Price')) &lt;= number(bpws:getVariableData('FlightResponseDA','confirmationData','/ns1:confirmationData/Price'))">

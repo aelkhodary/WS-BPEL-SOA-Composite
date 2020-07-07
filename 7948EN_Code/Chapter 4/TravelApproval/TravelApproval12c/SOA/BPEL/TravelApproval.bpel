@@ -35,15 +35,22 @@
       List of services participating in this BPEL process               
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   -->
+  <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/Airline.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
   <import namespace="http://packtpub.com/bpel/travel/" location="../WSDLs/TravelApprovalWrapper.wsdl"
           importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
+  <import namespace="http://packtpub.com/bpel/travel/" location="../WSDLs/TravelApproval.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+ 
   <partnerLinks>
     <!-- 
       The 'client' role represents the requester of this service. It is 
       used for callback. The location and correlation information associated
       with the client role are automatically set using WS-Addressing.
     -->
-    <partnerLink name="travelapproval" partnerLinkType="ns1:TravelApproval" myRole="TravelApprovalPT"/>
+    
+    <!--partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/-->
+    <partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/>
     <partnerLink name="AmericanAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
     <partnerLink name="EmployeeTravelStatus" partnerLinkType="ns3:EmployeeTravelStatus"
@@ -60,10 +67,13 @@
   -->
   <variables>
     <!-- Reference to the message passed as input during initiation -->
-    <variable name="inputVariable" messageType="ns1:TravelRequestMessage"/>
+    <variable name="TravelRequest" messageType="ns1:TravelRequestMessage"/>
 
     <!-- Reference to the message that will be returned to the requester-->
-    <variable name="outputVariable" messageType="ns2:ReservationResponseMessage"/>
+    <variable name="TravelResponse" messageType="ns2:ReservationResponseMessage"/>
+    <variable name="FlightDetails" messageType="ns2:FlightTicketRequestMessage"/>
+    <variable name="FlightResponseDA" messageType="ns2:TravelResponseMessage"/>
+    <variable name="FlightResponseAA" messageType="ns2:TravelResponseMessage"/>
   </variables>
 
   <!-- 
@@ -76,14 +86,78 @@
   <sequence name="main">
 
     <!-- Receive input from requestor. (Note: This maps to operation defined in TravelApproval.wsdl) -->
-    <receive name="receiveInput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval" variable="inputVariable" createInstance="yes"/>
-    <assign name="Assign1">
-      <copy>
-        <from>concat($inputVariable.travelRequest/employee/FirstName,'  ','ahmed elkhodary')</from>
-        <to>$outputVariable.reservationData/FlightNo</to>
-      </copy>
-    </assign>
+    <receive name="receiveInput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
+             variable="TravelRequest" createInstance="yes"/>
+    <scope name="RetrieveEmployeeTravelStatus">
+      <variables>
+        <variable name="EmpmployeeTravelStatusRequest" messageType="ns3:EmployeeTravelStatusRequestMessage"/>
+        <variable name="EmployeeTravelStatusResponse" messageType="ns3:EmployeeTravelStatusResponseMessage"/>
+      </variables>
+      <sequence name="Sequence1">
+        <assign name="Assign-Employee">
+          <copy>
+            <from>$TravelRequest.travelRequest/employee</from>
+            <to>$EmpmployeeTravelStatusRequest.employee</to>
+          </copy>
+        </assign>
+        <invoke name="Invoke-EmployeeTravelStatus" partnerLink="EmployeeTravelStatus"
+                portType="ns3:EmployeeTravelStatusPT" operation="EmployeeTravelStatus"
+                inputVariable="EmpmployeeTravelStatusRequest" outputVariable="EmployeeTravelStatusResponse"
+                bpelx:invokeAsDetail="no"/>
+        <assign name="Assign-FlightDetails">
+          <copy>
+            <from>$TravelRequest.travelRequest/flightData</from>
+            <to>$FlightDetails.flightTicketRequest/ns2:flightData</to>
+          </copy>
+          <copy>
+            <from>$EmployeeTravelStatusResponse.travelClass</from>
+            <to>$FlightDetails.flightTicketRequest/ns2:travelClass</to>
+          </copy>
+        </assign>
+      </sequence>
+    </scope>
+    <scope name="CheckFlightAvailability">
+      <flow name="Flow">
+        <sequence name="Sequence">
+          <invoke name="Invoke-DeltaAirLines" partnerLink="DeltaAirlines" portType="ns2:FlightAvailabilityPT"
+                  operation="FlightAvailability" inputVariable="FlightDetails" bpelx:invokeAsDetail="no"/>
+          <receive name="Receive-DeltaAirLines" partnerLink="DeltaAirlines" portType="ns2:FlightCallbackPT"
+                   operation="FlightTicketCallback" variable="FlightResponseDA"/>
+        </sequence>
+        <sequence name="Sequence2">
+          <invoke name="Invoke-AmericanAirLines" bpelx:invokeAsDetail="no" partnerLink="AmericanAirlines"
+                  portType="ns2:FlightAvailabilityPT" operation="FlightAvailability" inputVariable="FlightDetails"/>
+          <receive name="Receive-AmericanAirLines" partnerLink="AmericanAirlines" portType="ns2:FlightCallbackPT"
+                   operation="FlightTicketCallback" variable="FlightResponseAA"/>
+        </sequence>
+      </flow>
+    </scope>
+    <scope name="SelectAirline">
+      <if name="If">
+        <documentation>
+          <![CDATA[AA is cheaper]]>
+        </documentation>
+        <condition>number($FlightResponseAA.confirmationData/Price) &lt;= number($FlightResponseDA.confirmationData/Price)</condition>
+        <sequence name="Sequence3">
+          <invoke name="AmericanAirLineReservation" partnerLink="AmericanAirlines"
+                  portType="ns2:FlightAvailabilityPT" operation="MakeReservation" inputVariable="FlightResponseAA"
+                  bpelx:invokeAsDetail="no"/>
+          <receive name="AmericanAirLineReservation" partnerLink="AmericanAirlines" portType="ns2:FlightCallbackPT"
+                   operation="MakeReservationCallback" variable="TravelResponse"/>
+        </sequence>
+        <else>
+          <sequence name="Sequence4">
+            <invoke name="DeltaAirLineReservation" partnerLink="DeltaAirlines"
+                    portType="ns2:FlightAvailabilityPT" operation="MakeReservation" inputVariable="FlightResponseDA"
+                    bpelx:invokeAsDetail="no"/>
+            <receive name="DeltaAirLineReservation" partnerLink="DeltaAirlines" portType="ns2:FlightCallbackPT"
+                     operation="MakeReservationCallback" variable="TravelResponse"/>
+          </sequence>
+        </else>
+      </if>
+    </scope>
     <!-- Generate reply to synchronous request -->
-    <reply name="replyOutput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval" variable="outputVariable"/>
+    <reply name="replyOutput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
+           variable="TravelResponse"/>
   </sequence>
 </process>

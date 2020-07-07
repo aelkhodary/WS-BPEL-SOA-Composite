@@ -13,5 +13,6 @@
             <plnk:portType name="tns:TravelApprovalPT"/>
         </plnk:role>
     </plnk:partnerLinkType>
+   
     <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
 </wsdl:definitions>
