@@ -57,6 +57,7 @@
                  partnerRole="EmployeeTravelStatusPT"/>
     <partnerLink name="DeltaAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
+    <partnerLink name="Airline" partnerLinkType="ns2:flightLT" partnerRole="airlineService" myRole="airlineCustomer"/>
   </partnerLinks>
 
   <!-- 
@@ -74,6 +75,8 @@
     <variable name="FlightDetails" messageType="ns2:FlightTicketRequestMessage"/>
     <variable name="FlightResponseDA" messageType="ns2:TravelResponseMessage"/>
     <variable name="FlightResponseAA" messageType="ns2:TravelResponseMessage"/>
+    <variable name="index" type="xsd:int"/>
+    <variable name="CombinedFlightResponse" messageType="ns2:TravelResponseMessage"/>
   </variables>
 
   <!-- 
@@ -117,20 +120,27 @@
       </sequence>
     </scope>
     <scope name="CheckFlightAvailability">
-      <flow name="Flow">
-        <sequence name="Sequence">
-          <invoke name="Invoke-DeltaAirLines" partnerLink="DeltaAirlines" portType="ns2:FlightAvailabilityPT"
-                  operation="FlightAvailability" inputVariable="FlightDetails" bpelx:invokeAsDetail="no"/>
-          <receive name="Receive-DeltaAirLines" partnerLink="DeltaAirlines" portType="ns2:FlightCallbackPT"
-                   operation="FlightTicketCallback" variable="FlightResponseDA"/>
-        </sequence>
-        <sequence name="Sequence2">
-          <invoke name="Invoke-AmericanAirLines" bpelx:invokeAsDetail="no" partnerLink="AmericanAirlines"
-                  portType="ns2:FlightAvailabilityPT" operation="FlightAvailability" inputVariable="FlightDetails"/>
-          <receive name="Receive-AmericanAirLines" partnerLink="AmericanAirlines" portType="ns2:FlightCallbackPT"
-                   operation="FlightTicketCallback" variable="FlightResponseAA"/>
-        </sequence>
-      </flow>
+      <sequence name="Sequence5">
+        <forEach parallel="no" counterName="ForEach1Counter" name="ForEach">
+          <startCounterValue/>
+          <finalCounterValue/>
+          <scope name="Scope1"></scope>
+        </forEach>
+        <flow name="Flow">
+          <sequence name="Sequence">
+            <invoke name="Invoke-DeltaAirLines" partnerLink="DeltaAirlines" portType="ns2:FlightAvailabilityPT"
+                    operation="FlightAvailability" inputVariable="FlightDetails" bpelx:invokeAsDetail="no"/>
+            <receive name="Receive-DeltaAirLines" partnerLink="DeltaAirlines" portType="ns2:FlightCallbackPT"
+                     operation="FlightTicketCallback" variable="FlightResponseDA"/>
+          </sequence>
+          <sequence name="Sequence2">
+            <invoke name="Invoke-AmericanAirLines" bpelx:invokeAsDetail="no" partnerLink="AmericanAirlines"
+                    portType="ns2:FlightAvailabilityPT" operation="FlightAvailability" inputVariable="FlightDetails"/>
+            <receive name="Receive-AmericanAirLines" partnerLink="AmericanAirlines" portType="ns2:FlightCallbackPT"
+                     operation="FlightTicketCallback" variable="FlightResponseAA"/>
+          </sequence>
+        </flow>
+      </sequence>
     </scope>
     <scope name="SelectAirline">
       <if name="If">

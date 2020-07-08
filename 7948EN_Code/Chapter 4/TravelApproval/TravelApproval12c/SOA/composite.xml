@@ -22,6 +22,11 @@
   <import namespace="http://packtpub.com/service/airline/"
           location="http://localhost:8001/soa-infra/services/default/DeltaAirLines12c!1.0/WSDLs/AirLineRef.wsdl"
           importType="wsdl"/>
+  <import namespace="http://packtpub.com/service/airline/"
+          location="file:/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/AmericanAirlines12c/SOA/WSDLs/AirLineRef.wsdl"
+          importType="wsdl"/>
+  <import namespace="http://packtpub.com/service/airline/"
+          location="../../AmericanAirlines12c/SOA/WSDLs/AirLineRef.wsdl" importType="wsdl"/>
   <service name="travelapproval_ep" ui:wsdlLocation="WSDLs/TravelApprovalWrapper.wsdl">
     <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
     <binding.ws port="http://packtpub.com/bpel/travel/#wsdl.endpoint(travelapproval_ep/TravelApprovalPT_pt)">
@@ -44,6 +49,10 @@
       </reference>
       <reference name="DeltaAirlines"
                  ui:wsdlLocation="http://localhost:8001/soa-infra/services/default/DeltaAirLines12c!1.0/WSDLs/AirLineRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                        callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+      </reference>
+      <reference name="Airline" ui:wsdlLocation="../../AmericanAirlines12c/SOA/WSDLs/AirLineRef.wsdl">
         <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
                         callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
       </reference>
@@ -82,6 +91,15 @@
       <binding.ws port="http://packtpub.com/service/airline/#wsdl.endpoint(client/FlightCallbackPT_pt)"/>
     </callback>
   </reference>
+  <reference name="Airline"
+             ui:wsdlLocation="file:/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/AmericanAirlines12c/SOA/WSDLs/AirLineRef.wsdl">
+    <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                    callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+    <binding.ws port="" location=""/>
+    <callback>
+      <binding.ws port=""/>
+    </callback>
+  </reference>
   <wire>
     <source.uri>TravelApproval/AmericanAirlines</source.uri>
     <target.uri>AmericanAirlines</target.uri>
@@ -97,5 +115,9 @@
   <wire>
     <source.uri>travelapproval_ep</source.uri>
     <target.uri>TravelApproval/travelapproval</target.uri>
+  </wire>
+  <wire>
+    <source.uri>TravelApproval/Airline</source.uri>
+    <target.uri>Airline</target.uri>
   </wire>
 </composite>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org"
+            xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+            elementFormDefault="qualified">
+
+  <xsd:import namespace="http://schemas.xmlsoap.org/ws/2003/03/addressing" 
+   schemaLocation="oramds:///soa/shared/common/ws-addressing.xsd" /> 
+
+<xsd:complexType name="AirlineDataType">
+
+    <xsd:sequence>
+      <xsd:element name="AirlineLink" maxOccurs="unbounded"> 
+        <xsd:complexType>
+
+          <xsd:sequence>
+            <xsd:element ref="wsa:EndpointReference" /> 
+          </xsd:sequence>
+
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+
+  </xsd:complexType>
+</xsd:schema>

@@ -4,12 +4,13 @@
      targetNamespace="http://packtpub.com/bpel/travel/">
     <xsd:import namespace="http://packtpub.com/service/airline/" schemaLocation="../Schemas/FlightRequestType.xsd"/>
     <xsd:import namespace="http://packtpub.com/service/employee/" schemaLocation="../Schemas/EmployeeType.xsd"/>
-    
+     <xsd:include schemaLocation="../Schemas/AirlineDataType.xsd" />
     <xsd:element name="TravelApproval" type="tns:TravelRequestType"/>
     <xsd:complexType name="TravelRequestType">
         <xsd:sequence>
             <xsd:element name="employee" type="bons0:EmployeeType" minOccurs="0"/>
             <xsd:element name="flightData" type="bons1:FlightRequestType" minOccurs="0"/>
+             <xsd:element name="airlineData" type="tns:AirlineDataType" minOccurs="0"/>
         </xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
