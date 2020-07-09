@@ -4,14 +4,14 @@
    <annotationfile/>
    <iconize/>
    <partnerlink_locations>
-      <partnerlink name="travelapproval" x="0" y="711" side="left"/>
-      <partnerlink name="AirLine" x="0" y="890" side="left"/>
-      <partnerlink name="EmployeeTravelStatus" x="0" y="334" side="left"/>
+      <partnerlink name="travelapproval" x="0" y="517" side="left"/>
+      <partnerlink name="AirLine" x="0" y="577" side="left"/>
+      <partnerlink name="EmployeeTravelStatus" x="0" y="21" side="left"/>
    </partnerlink_locations>
-   <graph_layout viewport="0,843,1128,641" show_swimlanes="true">
+   <graph_layout viewport="0,230,1128,641" show_swimlanes="true">
       <layout_item collapsed="false" xpath="/process" type="process" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence" type="sequence"/>
-      <layout_item collapsed="false" xpath="/process/sequence/scope[1]" type="scope" showhandlers="true"/>
+      <layout_item collapsed="true" xpath="/process/sequence/scope[1]" type="scope" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence/scope[1]/sequence" type="sequence"/>
       <layout_item collapsed="false" xpath="/process/sequence/scope[2]" type="scope" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence/scope[2]/compensationHandler" type="compensationHandler"/>

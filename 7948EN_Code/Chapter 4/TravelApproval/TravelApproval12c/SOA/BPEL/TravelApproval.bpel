@@ -109,7 +109,7 @@
             <to>$FlightDetails.flightTicketRequest/ns2:flightData</to>
           </copy>
           <copy>
-            <from>0</from>
+            <from>1</from>
             <to>$index</to>
           </copy>
           <copy>
@@ -138,7 +138,7 @@
             <sequence name="Sequence6">
               <assign name="AssignEndpointReference">
                 <copy>
-                  <from>$TravelRequest.travelRequest/airlineData/ns1:AirlineLink[$index]/ns4:EndpointReference</from>
+                  <from>$TravelRequest.travelRequest/airlineData/ns1:AirlineLink[number(1)]/ns4:EndpointReference</from>
                   <to partnerLink="AirLine"/>
                 </copy>
               </assign>
