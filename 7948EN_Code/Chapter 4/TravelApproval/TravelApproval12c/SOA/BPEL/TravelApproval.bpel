@@ -28,7 +28,7 @@
          xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
          xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
          xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="http://packtpub.com/service/employee/"
-         xmlns:ns4="http://schemas.xmlsoap.org/ws/2003/03/addressing">
+         xmlns:ns4="http://schemas.xmlsoap.org/ws/2003/03/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <!-- 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +52,8 @@
     
     <!--partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/-->
     <partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/>
+    <partnerLink name="EmployeeTravelStatus" partnerLinkType="ns3:EmployeeTravelStatus"
+                 partnerRole="EmployeeTravelStatusPT"/>
   </partnerLinks>
 
   <!-- 
@@ -70,6 +72,7 @@
     <variable name="index" type="xsd:int"/>
     <variable name="CombinedFlightResponse" messageType="ns2:TravelResponseMessage"/>
     <variable name="TempResponse" messageType="ns2:TravelResponseMessage"/>
+    <variable name="TravelResponseE"  messageType="ns2:ReservationResponseMessage"/>
   </variables>
 
   <!-- 
@@ -130,9 +133,8 @@
           <scope name="Scope1">
             <partnerLinks>
               <partnerLink name="AirLine" partnerLinkType="ns2:flightLT" myRole="airlineCustomer"
-                           partnerRole="airlineService" initializePartnerRole="yes"/>
+                           partnerRole="airlineService"/>
             </partnerLinks>
-           
             <sequence name="Sequence6">
               <assign name="AssignEndpointReference">
                 <copy>
@@ -140,10 +142,11 @@
                   <to partnerLink="AirLine"/>
                 </copy>
               </assign>
-              <invoke name="AirLine" bpelx:invokeAsDetail="no" partnerLink="AirLine"
-                      portType="ns2:FlightAvailabilityPT" operation="FlightAvailability" inputVariable="FlightDetails"/>
-              <receive name="AirLine" partnerLink="AirLine" portType="ns2:FlightCallbackPT"
-                       operation="FlightTicketCallback" variable="FlightResponse"/>
+              <invoke name="AirLine" partnerLink="AirLine"
+                      portType="ns2:FlightAvailabilityPT" inputVariable="FlightDetails"
+                      operation="FlightAvailability" bpelx:invokeAsDetail="no"/>
+              <receive name="AirLine" partnerLink="AirLine" portType="ns2:FlightCallbackPT" variable="FlightResponse"
+                       operation="FlightTicketCallback"/>
               <assign name="AppendResult">
                 <copy>
                   <from variable="FlightResponse"/>
@@ -205,6 +208,6 @@
     </scope>
     <!-- Generate reply to synchronous request -->
     <reply name="replyOutput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
-           variable="TravelResponse"/>
+           variable="TravelResponseE"/>
   </sequence>
 </process>

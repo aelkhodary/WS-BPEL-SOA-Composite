@@ -1,28 +1,16 @@
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
-2020-07-09 03:41:43.342/1.325 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
-2020-07-09 03:41:43.371/1.354 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
-2020-07-09 03:41:43.372/1.356 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
-2020-07-09 03:41:43.373/1.357 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
-2020-07-09 03:41:43.374/1.358 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
-2020-07-09 03:41:43.374/1.358 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+2020-07-09 14:05:41.790/1.328 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2020-07-09 14:05:41.816/1.354 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2020-07-09 14:05:41.817/1.355 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2020-07-09 14:05:41.819/1.357 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2020-07-09 14:05:41.820/1.358 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2020-07-09 14:05:41.821/1.358 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
 
 Oracle Coherence Version 12.1.3.0.0 Build 52031
  Grid Edition: Development mode
 Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
 
-2020-07-09 03:41:43.464/1.448 Oracle Coherence GE 12.1.3.0.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.DefaultConfigurableCacheFactory
-Jul 09, 2020 3:41:43 AM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+2020-07-09 14:05:41.913/1.451 Oracle Coherence GE 12.1.3.0.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.DefaultConfigurableCacheFactory
+Jul 09, 2020 2:05:42 PM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
 INFO: XMLSchema incremental build enabled.
-Jul 09, 2020 3:41:43 AM oracle.fabric.common.wsdl.WSDLManager loadWSDL
-WARNING: Failed to load WSDL from  due to: null
-null
-java.lang.NullPointerException
-	at oracle.soa.scac.ValidateComposite.checkBindingInWsdlManager(ValidateComposite.java:382)
-	at oracle.soa.scac.ValidateComposite.validateBindings(ValidateComposite.java:964)
-	at oracle.soa.scac.ValidateComposite.validateReferences(ValidateComposite.java:1150)
-	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:520)
-	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
-	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
-	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
-	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
