@@ -1,7 +1,7 @@
 <?xml version= '1.0' encoding= 'UTF-8' ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bons0="http://packtpub.com/service/employee/"
      xmlns:tns="http://packtpub.com/service/airline/" targetNamespace="http://packtpub.com/service/airline/">
-    <xsd:import namespace="http://packtpub.com/service/employee/" schemaLocation="../Schemas/TravelClassType.xsd"/>
+    <xsd:import namespace="http://packtpub.com/service/employee/" schemaLocation="TravelClassType.xsd"/>
     <xsd:element name="confirmationData" type="tns:FlightConfirmationType"/>
     <xsd:complexType name="FlightConfirmationType">
         <xsd:sequence>
