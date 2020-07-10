@@ -16,7 +16,6 @@
     </plnk:partnerLinkType>
     <!--wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
     <wsdl:import namespace="http://packtpub.com/service/airline/" location="Airline.wsdl"/-->
-     <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
+   <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
     <wsdl:import namespace="http://packtpub.com/service/airline/" location="Airline.wsdl"/>
-
 </wsdl:definitions>

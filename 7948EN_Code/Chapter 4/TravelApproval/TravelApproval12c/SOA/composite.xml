@@ -37,6 +37,7 @@
         <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
                         callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
       </reference>
+     
     </componentType>
     <property name="bpel.config.transaction" type="xs:string" many="false">required</property>
   </component>
