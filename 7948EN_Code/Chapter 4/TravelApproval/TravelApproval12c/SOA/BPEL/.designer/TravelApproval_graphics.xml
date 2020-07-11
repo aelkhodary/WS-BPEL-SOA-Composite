@@ -5,11 +5,11 @@
    <iconize/>
    <partnerlink_locations>
       <partnerlink name="travelapproval" x="0" y="798" side="left"/>
-      <partnerlink name="EmployeeTravelStatus" x="0" y="334" side="left"/>
-      <partnerlink name="AmericanAirlines" x="974" y="943" side="right"/>
-      <partnerlink name="DeltaAirlines" x="974" y="1003" side="right"/>
+      <partnerlink name="AmericanAirlines" x="879" y="943" side="right"/>
+      <partnerlink name="EmployeeTravelStatus" x="879" y="100" side="right"/>
+      <partnerlink name="DeltaAirlines" x="879" y="1003" side="right"/>
    </partnerlink_locations>
-   <graph_layout viewport="0,918,1128,641" show_swimlanes="true">
+   <graph_layout viewport="0,51,1048,606" show_swimlanes="true">
       <layout_item collapsed="false" xpath="/process" type="process" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence" type="sequence"/>
       <layout_item collapsed="false" xpath="/process/sequence/scope[1]" type="scope" showhandlers="true"/>

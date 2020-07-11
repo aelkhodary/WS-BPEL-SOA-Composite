@@ -41,7 +41,8 @@
           importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
   <import namespace="http://packtpub.com/bpel/travel/" location="../WSDLs/TravelApproval.wsdl"
           importType="http://schemas.xmlsoap.org/wsdl/"/>
- 
+<import location="com.packtpub.service.employee.*" importType="http://schemas.oracle.com/bpel/extension/java"/>
+<import location="org.w3c.dom.Element" importType="http://schemas.oracle.com/bpel/extension/java"/>
   <partnerLinks>
     <!-- 
       The 'client' role represents the requester of this service. It is 
@@ -53,10 +54,10 @@
     <partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/>
     <partnerLink name="AmericanAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
-    <partnerLink name="EmployeeTravelStatus" partnerLinkType="ns3:EmployeeTravelStatus"
-                 partnerRole="EmployeeTravelStatusPT"/>
     <partnerLink name="DeltaAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
+    <partnerLink name="EmployeeTravelStatus" partnerLinkType="ns3:EmployeeTravelStatusPT_PLT"
+                 partnerRole="EmployeeTravelStatusPT_Role"/>
   </partnerLinks>
 
   <!-- 
@@ -90,20 +91,38 @@
              variable="TravelRequest" createInstance="yes"/>
     <scope name="RetrieveEmployeeTravelStatus">
       <variables>
-        <variable name="EmpmployeeTravelStatusRequest" messageType="ns3:EmployeeTravelStatusRequestMessage"/>
         <variable name="EmployeeTravelStatusResponse" messageType="ns3:EmployeeTravelStatusResponseMessage"/>
       </variables>
       <sequence name="Sequence1">
         <assign name="Assign-Employee">
           <copy>
-            <from>$TravelRequest.travelRequest/employee</from>
-            <to>$EmpmployeeTravelStatusRequest.employee</to>
+            <from>'Economy'</from>
+            <to>$EmployeeTravelStatusResponse.travelClass</to>
           </copy>
         </assign>
-        <invoke name="Invoke-EmployeeTravelStatus" partnerLink="EmployeeTravelStatus"
-                portType="ns3:EmployeeTravelStatusPT" operation="EmployeeTravelStatus"
-                inputVariable="EmpmployeeTravelStatusRequest" outputVariable="EmployeeTravelStatusResponse"
-                bpelx:invokeAsDetail="no"/>
+        <extensionActivity>
+          
+          <bpelx:exec name="EmployeeTravelStatus" version="1.7" language="java">
+            <![CDATA[try{  
+String FirstName = ((Element)getVariableData("TravelRequest","travelRequest","/ns1:TravelApproval/employee/FirstName")).getTextContent();       
+  String LastName = ((Element)getVariableData("TravelRequest","travelRequest","/ns1:TravelApproval/employee/LastName")).getTextContent();       
+  String Department = ((Element)getVariableData("TravelRequest","travelRequest","/ns1:TravelApproval/employee/Department")).getTextContent();       
+ 
+  EmployeeType emp = new EmployeeType();     
+  emp.setFirstName(FirstName);     
+  emp.setLastName(LastName);     
+  emp.setDepartment(Department);     
+     
+  EmployeeTravelStatusPTImpl e = new EmployeeTravelStatusPTImpl();     
+  TravelClassType c = e.employeeTravelStatus(emp);     
+           
+  addAuditTrailEntry("Travel Class type is: "+c.value()); 
+setVariableData("EmployeeTravelStatusResponse","travelClass","/ns3:travelClass",c.value());     
+} catch(Exception e){         
+   addAuditTrailEntry(e);         
+}]]>
+          </bpelx:exec>
+        </extensionActivity>
         <assign name="Assign-FlightDetails">
           <copy>
             <from>$TravelRequest.travelRequest/flightData</from>

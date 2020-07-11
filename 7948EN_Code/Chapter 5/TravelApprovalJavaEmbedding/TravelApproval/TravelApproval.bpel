@@ -37,7 +37,14 @@
       PARTNERLINKS                                                      
       List of services participating in this BPEL process               
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  --> 
+  -->
+  <bpelx:annotation>
+    <bpelx:analysis>
+      <bpelx:property name="wsdlFile">
+        <![CDATA[TravelApprovalRef.wsdl]]>
+      </bpelx:property>
+    </bpelx:analysis>
+  </bpelx:annotation>
   <partnerLinks>
     <!-- 
       The 'client' role represents the requester of this service. It is 
@@ -50,6 +57,8 @@
                  partnerLinkType="ns2:employeeLT"/>
     <partnerLink myRole="airlineCustomer" name="AmericanAirlines"
                  partnerRole="airlineService" partnerLinkType="ns1:flightLT"/>
+    <partnerLink name="EmployeeTravelStatus" partnerLinkType="ns3:EmployeeTravelStatus"
+                 partnerRole="EmployeeTravelStatusPT"/>
     <partnerLink myRole="airlineCustomer" name="DeltaAirlines"
                  partnerRole="airlineService" partnerLinkType="ns1:flightLT"/>
   </partnerLinks>
@@ -119,8 +128,7 @@
         <assign name="Initialize">
           <copy>
             <from expression='string("Economy")'/>
-            <to variable="EmployeeTravelStatusResponse" part="travelClass"
-                query="/ns2:travelClass"/>
+            <to variable="EmployeeTravelStatusResponse" part="travelClass" query="/ns2:travelClass"/>
           </copy>
         </assign>
         <bpelx:exec import="com.packtpub.service.employee.*"/>

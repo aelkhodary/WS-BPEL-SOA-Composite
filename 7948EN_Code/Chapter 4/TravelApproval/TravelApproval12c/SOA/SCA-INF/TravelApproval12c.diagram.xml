@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
     <dgm:gService name="travelapproval_ep">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="181" width="137" height="84">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="193" width="137" height="84">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="174" width="156" height="98">
+        <dgm:shadow arcRad="20" X="11" Y="186" width="156" height="98">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:outputPort name="travelapproval_ep" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
@@ -15,11 +15,11 @@
         </dgm:operations>
     </dgm:gService>
     <dgm:gReference name="AmericanAirlines">
-        <dgm:body borderWidth="2" arcRad="20" X="830" Y="26" width="136" height="120">
+        <dgm:body borderWidth="2" arcRad="20" X="778" Y="26" width="136" height="120">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="820" Y="19" width="156" height="134">
+        <dgm:shadow arcRad="20" X="768" Y="19" width="156" height="134">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="AmericanAirlines" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
@@ -31,26 +31,12 @@
             <dgm:item>MakeReservationCallback</dgm:item>
         </dgm:operations>
     </dgm:gReference>
-    <dgm:gReference name="EmployeeTravelStatus">
-        <dgm:body borderWidth="2" arcRad="20" X="830" Y="180" width="136" height="84">
-            <dgm:borderColor r="153" g="153" b="153"/>
-            <dgm:bgColor r="255" g="255" b="255"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="820" Y="173" width="156" height="98">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:inputPort name="EmployeeTravelStatus" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
-        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
-        <dgm:operations>
-            <dgm:item>EmployeeTravelStatus</dgm:item>
-        </dgm:operations>
-    </dgm:gReference>
     <dgm:gReference name="DeltaAirlines">
-        <dgm:body borderWidth="2" arcRad="20" X="830" Y="298" width="136" height="120">
+        <dgm:body borderWidth="2" arcRad="20" X="778" Y="180" width="136" height="120">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="820" Y="291" width="156" height="134">
+        <dgm:shadow arcRad="20" X="768" Y="173" width="156" height="134">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="DeltaAirlines" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
@@ -62,44 +48,58 @@
             <dgm:item>MakeReservationCallback</dgm:item>
         </dgm:operations>
     </dgm:gReference>
+    <dgm:gReference name="EmployeeTravelStatus">
+        <dgm:body borderWidth="2" arcRad="20" X="778" Y="334" width="136" height="84">
+            <dgm:borderColor r="153" g="153" b="153"/>
+            <dgm:bgColor r="255" g="255" b="255"/>
+        </dgm:body>
+        <dgm:shadow arcRad="20" X="768" Y="327" width="156" height="98">
+            <dgm:bgColor r="196" g="228" b="240"/>
+        </dgm:shadow>
+        <dgm:inputPort name="EmployeeTravelStatus" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
+        <dgm:nodeIcon URI="/oracle/tip/tools/ide/adapters/designtime/adapter/images/soap_service_20x20.png" X="27" Y="4" width="20" height="20"/>
+        <dgm:operations>
+            <dgm:item>EmployeeTravelStatus</dgm:item>
+        </dgm:operations>
+    </dgm:gReference>
     <dgm:gComponent name="TravelApproval">
-        <dgm:body borderWidth="2" arcRad="20" X="429" Y="166" width="130" height="111">
+        <dgm:body borderWidth="2" arcRad="20" X="403" Y="178" width="130" height="111">
             <dgm:borderColor r="69" g="113" b="140"/>
             <dgm:lightBgColor r="166" g="208" b="230"/>
             <dgm:darkBgColor r="99" g="162" b="201"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="419" Y="159" width="150" height="127">
+        <dgm:shadow arcRad="20" X="393" Y="171" width="150" height="127">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="travelapproval" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
         <dgm:outputPort name="AmericanAirlines" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
-        <dgm:outputPort name="EmployeeTravelStatus" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
-        <dgm:outputPort name="DeltaAirlines" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+        <dgm:outputPort name="DeltaAirlines" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+        <dgm:outputPort name="EmployeeTravelStatus" X="120" Y="65" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gWireLink source="TravelApproval/AmericanAirlines" target="AmericanAirlines" width="2">
-        <dgm:gSegment X1="569" Y1="191" X2="593" Y2="191"/>
-        <dgm:gSegment X1="593" Y1="191" X2="593" Y2="36"/>
-        <dgm:gSegment X1="593" Y1="36" X2="820" Y2="36"/>
-        <dgm:baseColor r="153" g="153" b="153"/>
-        <dgm:selectedColor r="49" g="106" b="196"/>
-    </dgm:gWireLink>
-    <dgm:gWireLink source="TravelApproval/EmployeeTravelStatus" target="EmployeeTravelStatus" width="2">
-        <dgm:gSegment X1="569" Y1="216" X2="608" Y2="216"/>
-        <dgm:gSegment X1="608" Y1="216" X2="608" Y2="190"/>
-        <dgm:gSegment X1="608" Y1="190" X2="820" Y2="190"/>
+        <dgm:gSegment X1="543" Y1="203" X2="567" Y2="203"/>
+        <dgm:gSegment X1="567" Y1="203" X2="567" Y2="36"/>
+        <dgm:gSegment X1="567" Y1="36" X2="768" Y2="36"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TravelApproval/DeltaAirlines" target="DeltaAirlines" width="2">
-        <dgm:gSegment X1="569" Y1="241" X2="593" Y2="241"/>
-        <dgm:gSegment X1="593" Y1="241" X2="593" Y2="308"/>
-        <dgm:gSegment X1="593" Y1="308" X2="820" Y2="308"/>
+        <dgm:gSegment X1="543" Y1="228" X2="582" Y2="228"/>
+        <dgm:gSegment X1="582" Y1="228" X2="582" Y2="190"/>
+        <dgm:gSegment X1="582" Y1="190" X2="768" Y2="190"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="travelapproval_ep" target="TravelApproval/travelapproval" width="2">
-        <dgm:gSegment X1="168" Y1="191" X2="419" Y2="191"/>
+        <dgm:gSegment X1="168" Y1="203" X2="393" Y2="203"/>
+        <dgm:baseColor r="153" g="153" b="153"/>
+        <dgm:selectedColor r="49" g="106" b="196"/>
+    </dgm:gWireLink>
+    <dgm:gWireLink source="TravelApproval/EmployeeTravelStatus" target="EmployeeTravelStatus" width="2">
+        <dgm:gSegment X1="543" Y1="253" X2="567" Y2="253"/>
+        <dgm:gSegment X1="567" Y1="253" X2="567" Y2="344"/>
+        <dgm:gSegment X1="567" Y1="344" X2="768" Y2="344"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
