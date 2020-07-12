@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faultPolicyBindings version="2.0.1" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+
+    <composite faultPolicy="TravelApprovalFaults"/>
+
+    <component faultPolicy="TravelApprovalFaults">
+        <name>TravelApproval</name>
+    </component>
+
+    <reference faultPolicy="TravelApprovalFaults">
+        <name>AmericanAirlines</name>
+    </reference>
+
+    <reference faultPolicy="TravelApprovalFaults">
+        <name>EmployeeTravelStatus</name>
+    </reference>
+
+    <reference faultPolicy="TravelApprovalFaults">
+        <name>DeltaAirlines</name>
+    </reference>
+
+    <service faultPolicy="TravelApprovalFaults">
+        <name>travelapproval_ep</name>
+    </service>
+</faultPolicyBindings>

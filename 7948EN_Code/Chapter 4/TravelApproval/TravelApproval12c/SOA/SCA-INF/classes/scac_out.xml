@@ -10,4 +10,14 @@
       <fix>Fix the process to be *either* durable or synchronous.</fix>
       <msg>Process "TravelApproval" is both durable (onMessage,Receive,Wait) and synchronous.</msg>
    </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='TravelApproval/travelapproval']</loc>
+      <line>105</line>
+      <col>17</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/TravelApproval12c/SOA/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/TravelApproval12c/SOA/composite.xml</name>
+      <fix/>
+      <msg>Schema validation failed with exception "Invalid element 'element' in 'all'"</msg>
+   </Fault>
 </Faults>

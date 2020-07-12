@@ -20,8 +20,18 @@
       <binding.ws port="http://packtpub.com/service/airline/#wsdl.endpoint(TicketService/FlightCallbackPT_pt)"/>
     </callback>
   </service>
+  <property name="originalProductVersion" type="xs:string" many="false">11.0.0.0.0</property>
+  <property name="productVersion" type="xs:string" many="false">12.1.3.0.0</property>
+  <property name="compositeID" type="xs:string" many="false">6ebc78cb-36fb-4c10-b3d2-fde3e6af1cc3</property>
   <component name="AmericanAirlines">
     <implementation.bpel src="AmericanAirlines.bpel"/>
+    <componentType xmlns="http://xmlns.oracle.com/sca/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:ui="http://xmlns.oracle.com/soa/designer/">
+      <service name="client" ui:wsdlLocation="AirlineRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                        callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+      </service>
+    </componentType>
   </component>
   <wire>
     <source.uri>TicketService</source.uri>

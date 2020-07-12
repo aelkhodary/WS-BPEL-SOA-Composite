@@ -24,8 +24,30 @@
     <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
     <binding.ws port="http://packtpub.com/bpel/travel/#wsdl.endpoint(TravelApprovalService/TravelApprovalPT_pt)"/>
   </service>
+  <property name="originalProductVersion" type="xs:string" many="false">11.0.0.0.0</property>
+  <property name="productVersion" type="xs:string" many="false">12.1.3.0.0</property>
+  <property name="compositeID" type="xs:string" many="false">880d852f-0a48-4a75-ba00-086aacf99a91</property>
   <component name="TravelApproval">
     <implementation.bpel src="TravelApproval.bpel"/>
+    <componentType xmlns="http://xmlns.oracle.com/sca/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:ui="http://xmlns.oracle.com/soa/designer/">
+      <service name="client" ui:wsdlLocation="TravelApprovalRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
+      </service>
+      <reference name="EmployeeTravelStatus" ui:wsdlLocation="EmployeeTravelStatus1.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
+      </reference>
+      <reference name="AmericanAirlines"
+                 ui:wsdlLocation="http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                        callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+      </reference>
+      <reference name="DeltaAirlines"
+                 ui:wsdlLocation="http://localhost:8001/soa-infra/services/default/DeltaAirlines/AirlineRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                        callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+      </reference>
+    </componentType>
   </component>
   <reference name="EmployeeTravelStatus"
              ui:wsdlLocation="EmployeeTravelStatus1.wsdl">
