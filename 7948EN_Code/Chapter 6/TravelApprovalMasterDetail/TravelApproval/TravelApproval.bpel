@@ -306,9 +306,7 @@
     <scope name="NotificationService">
       <bpelx:annotation>
         <bpelx:pattern patternName="bpelx:email"></bpelx:pattern>
-        <bpelx:general>
-          <bpelx:property name="userLabel">NotificationService</bpelx:property>
-        </bpelx:general>
+        <bpelx:general/>
       </bpelx:annotation>
       <variables>
         <variable name="varNotificationReq"

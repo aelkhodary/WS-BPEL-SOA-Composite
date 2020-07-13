@@ -1,0 +1,28 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="TicketReservationDetail"
+     targetNamespace="http://packtpub.com/bpel/travel/reservation"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:client="http://packtpub.com/bpel/travel/reservation"
+     xmlns:ns1="http://www.packtpub.com/bpel/travel/reservation"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:ns2="http://packtpub.com/service/airline/"
+    >
+    <plnk:partnerLinkType name="TicketReservationDetail">
+        <plnk:role name="TicketReservationDetailProvider" portType="client:TicketReservationDetail"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://packtpub.com/service/airline/" location="Airline.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://www.packtpub.com/bpel/travel/reservation" schemaLocation="../Schemas/FlightReservationRequestType.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="TicketReservationDetailRequestMessage">
+        <wsdl:part name="payload" element="ns1:flightReservation"/>
+    </wsdl:message>
+    <wsdl:portType name="TicketReservationDetail">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:TicketReservationDetailRequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

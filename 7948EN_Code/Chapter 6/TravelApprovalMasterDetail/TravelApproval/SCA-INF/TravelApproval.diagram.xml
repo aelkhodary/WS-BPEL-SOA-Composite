@@ -15,11 +15,11 @@
         </dgm:operations>
     </dgm:gService>
     <dgm:gReference name="EmployeeTravelStatus">
-        <dgm:body borderWidth="2" arcRad="20" X="871" Y="26" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="883" Y="26" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="861" Y="19" width="156" height="68">
+        <dgm:shadow arcRad="20" X="873" Y="19" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="EmployeeTravelStatus" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
@@ -27,11 +27,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="AmericanAirlines">
-        <dgm:body borderWidth="2" arcRad="20" X="871" Y="112" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="883" Y="112" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="861" Y="105" width="156" height="68">
+        <dgm:shadow arcRad="20" X="873" Y="105" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="AmericanAirlines" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
@@ -39,11 +39,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="DeltaAirlines">
-        <dgm:body borderWidth="2" arcRad="20" X="871" Y="225" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="883" Y="225" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="861" Y="218" width="156" height="68">
+        <dgm:shadow arcRad="20" X="873" Y="218" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="DeltaAirlines" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)" callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
@@ -51,11 +51,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="NotificationService_1">
-        <dgm:body borderWidth="2" arcRad="20" X="871" Y="313" width="136" height="168">
+        <dgm:body borderWidth="2" arcRad="20" X="883" Y="313" width="136" height="168">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="861" Y="306" width="156" height="182">
+        <dgm:shadow arcRad="20" X="873" Y="306" width="156" height="182">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="NotificationService_1" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://xmlns.oracle.com/ias/pcbpel/NotificationService#wsdl.interface(NotificationService)"/>
@@ -72,12 +72,12 @@
         </dgm:operations>
     </dgm:gReference>
     <dgm:gComponent name="TravelApproval">
-        <dgm:body borderWidth="2" arcRad="20" X="309" Y="138" width="130" height="161">
+        <dgm:body borderWidth="2" arcRad="20" X="313" Y="138" width="130" height="161">
             <dgm:borderColor r="69" g="113" b="140"/>
             <dgm:lightBgColor r="166" g="208" b="230"/>
             <dgm:darkBgColor r="99" g="162" b="201"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="299" Y="131" width="150" height="177">
+        <dgm:shadow arcRad="20" X="303" Y="131" width="150" height="177">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
@@ -89,12 +89,12 @@
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="TicketReservationDetail">
-        <dgm:body borderWidth="2" arcRad="20" X="590" Y="165" width="130" height="86">
+        <dgm:body borderWidth="2" arcRad="20" X="598" Y="165" width="130" height="86">
             <dgm:borderColor r="69" g="113" b="140"/>
             <dgm:lightBgColor r="166" g="208" b="230"/>
             <dgm:darkBgColor r="99" g="162" b="201"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="580" Y="158" width="150" height="102">
+        <dgm:shadow arcRad="20" X="588" Y="158" width="150" height="102">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="ticketreservationdetail_client" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="http://packtpub.com/bpel/travel/reservation#wsdl.interface(TicketReservationDetail)"/>
@@ -103,58 +103,58 @@
         <dgm:nodeIcon URI="/oracle/tip/tools/ide/bpel/shared/plugins/resources/images/soa/process_20x20.png" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gWireLink source="TravelApprovalService" target="TravelApproval/client" width="2">
-        <dgm:gSegment X1="168" Y1="163" X2="299" Y2="163"/>
+        <dgm:gSegment X1="168" Y1="163" X2="303" Y2="163"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TravelApproval/EmployeeTravelStatus" target="EmployeeTravelStatus" width="2">
-        <dgm:gSegment X1="449" Y1="163" X2="473" Y2="163"/>
-        <dgm:gSegment X1="473" Y1="163" X2="473" Y2="36"/>
-        <dgm:gSegment X1="473" Y1="36" X2="861" Y2="36"/>
+        <dgm:gSegment X1="453" Y1="163" X2="477" Y2="163"/>
+        <dgm:gSegment X1="477" Y1="163" X2="477" Y2="36"/>
+        <dgm:gSegment X1="477" Y1="36" X2="873" Y2="36"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TravelApproval/AmericanAirlines" target="AmericanAirlines" width="2">
-        <dgm:gSegment X1="449" Y1="188" X2="488" Y2="188"/>
-        <dgm:gSegment X1="488" Y1="188" X2="488" Y2="122"/>
-        <dgm:gSegment X1="488" Y1="122" X2="861" Y2="122"/>
+        <dgm:gSegment X1="453" Y1="188" X2="492" Y2="188"/>
+        <dgm:gSegment X1="492" Y1="188" X2="492" Y2="122"/>
+        <dgm:gSegment X1="492" Y1="122" X2="873" Y2="122"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TravelApproval/DeltaAirlines" target="DeltaAirlines" width="2">
-        <dgm:gSegment X1="449" Y1="213" X2="533" Y2="213"/>
-        <dgm:gSegment X1="533" Y1="213" X2="533" Y2="279"/>
-        <dgm:gSegment X1="533" Y1="279" X2="754" Y2="279"/>
-        <dgm:gSegment X1="754" Y1="279" X2="754" Y2="235"/>
-        <dgm:gSegment X1="754" Y1="235" X2="861" Y2="235"/>
+        <dgm:gSegment X1="453" Y1="213" X2="537" Y2="213"/>
+        <dgm:gSegment X1="537" Y1="213" X2="537" Y2="279"/>
+        <dgm:gSegment X1="537" Y1="279" X2="762" Y2="279"/>
+        <dgm:gSegment X1="762" Y1="279" X2="762" Y2="235"/>
+        <dgm:gSegment X1="762" Y1="235" X2="873" Y2="235"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TravelApproval/NotificationService_1" target="NotificationService_1" width="2">
-        <dgm:gSegment X1="449" Y1="238" X2="518" Y2="238"/>
-        <dgm:gSegment X1="518" Y1="238" X2="518" Y2="323"/>
-        <dgm:gSegment X1="518" Y1="323" X2="861" Y2="323"/>
+        <dgm:gSegment X1="453" Y1="238" X2="522" Y2="238"/>
+        <dgm:gSegment X1="522" Y1="238" X2="522" Y2="323"/>
+        <dgm:gSegment X1="522" Y1="323" X2="873" Y2="323"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TicketReservationDetail/AmericanAirlines" target="AmericanAirlines" width="2">
-        <dgm:gSegment X1="730" Y1="190" X2="769" Y2="190"/>
-        <dgm:gSegment X1="769" Y1="190" X2="769" Y2="122"/>
-        <dgm:gSegment X1="769" Y1="122" X2="861" Y2="122"/>
+        <dgm:gSegment X1="738" Y1="190" X2="777" Y2="190"/>
+        <dgm:gSegment X1="777" Y1="190" X2="777" Y2="122"/>
+        <dgm:gSegment X1="777" Y1="122" X2="873" Y2="122"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TicketReservationDetail/DeltaAirlines" target="DeltaAirlines" width="2">
-        <dgm:gSegment X1="730" Y1="215" X2="769" Y2="215"/>
-        <dgm:gSegment X1="769" Y1="215" X2="769" Y2="235"/>
-        <dgm:gSegment X1="769" Y1="235" X2="861" Y2="235"/>
+        <dgm:gSegment X1="738" Y1="215" X2="777" Y2="215"/>
+        <dgm:gSegment X1="777" Y1="215" X2="777" Y2="235"/>
+        <dgm:gSegment X1="777" Y1="235" X2="873" Y2="235"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="TravelApproval/TicketReservationDetail.ticketreservationdetail_client" target="TicketReservationDetail/ticketreservationdetail_client" width="2">
-        <dgm:gSegment X1="449" Y1="263" X2="503" Y2="263"/>
-        <dgm:gSegment X1="503" Y1="263" X2="503" Y2="190"/>
-        <dgm:gSegment X1="503" Y1="190" X2="580" Y2="190"/>
+        <dgm:gSegment X1="453" Y1="263" X2="507" Y2="263"/>
+        <dgm:gSegment X1="507" Y1="263" X2="507" Y2="190"/>
+        <dgm:gSegment X1="507" Y1="190" X2="588" Y2="190"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

@@ -1,0 +1,117 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Jul 13 04:41:53 GST 2020
+  Author:  aelkhodary
+  Type: BPEL 2.0 Process
+  Purpose: One Way BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="TicketReservationDetail"
+               targetNamespace="http://packtpub.com/bpel/travel/reservation"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://packtpub.com/bpel/travel/reservation"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://packtpub.com/service/airline/" xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:ns2="http://www.packtpub.com/bpel/travel/reservation"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+  <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/Airline.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <import ui:processWSDL="true" namespace="http://packtpub.com/bpel/travel/reservation" location="../WSDLs/TicketReservationDetail.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="ticketreservationdetail_client" partnerLinkType="client:TicketReservationDetail" myRole="TicketReservationDetailProvider"/>
+    <partnerLink name="AmericanAirlines" partnerLinkType="ns1:flightLT" partnerRole="airlineService"
+                 myRole="airlineCustomer"/>
+    <partnerLink name="DeltaAirlines" partnerLinkType="ns1:flightLT" partnerRole="airlineService"
+                 myRole="airlineCustomer"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:TicketReservationDetailRequestMessage"/>
+    <variable name="TravelResponse" messageType="ns1:ReservationResponseMessage"/>
+    <variable name="ReservationData" messageType="ns1:TravelResponseMessage"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in TicketReservationDetail.wsdl) -->
+    <receive name="receiveInput" partnerLink="ticketreservationdetail_client" portType="client:TicketReservationDetail" operation="process" variable="inputVariable" createInstance="yes"/>
+    <extensionActivity>
+      <bpelx:receiveSignal name="ReceiveSignalFromMaster" label="makeReservationDetail" from="master"/>
+    </extensionActivity>
+    <assign name="AssignReservationData">
+      <copy>
+        <from>$inputVariable.payload/ns2:confirmationData</from>
+        <to>$ReservationData.confirmationData</to>
+      </copy>
+    </assign>
+    <scope name="MakeReservation">
+      <if name="If">
+        <documentation>
+          <![CDATA[American Airlines]]>
+        </documentation>
+        <condition>$inputVariable.payload/ns2:airline = 'American'</condition>
+        <sequence name="Sequence1">
+          <invoke name="AmericanAirlinesReservation" partnerLink="AmericanAirlines"
+                  portType="ns1:FlightAvailabilityPT" operation="MakeReservation" inputVariable="ReservationData"
+                  bpelx:invokeAsDetail="no"/>
+          <receive name="AmericanAirlinesReservation" partnerLink="AmericanAirlines" portType="ns1:FlightCallbackPT"
+                   operation="MakeReservationCallback" variable="TravelResponse"/>
+        </sequence>
+        <else>
+          <sequence name="Sequence2">
+            <invoke name="DeltaAirlinesReservation" partnerLink="DeltaAirlines"
+                    portType="ns1:FlightAvailabilityPT" operation="MakeReservation" inputVariable="ReservationData"
+                    bpelx:invokeAsDetail="no"/>
+            <receive name="DeltaAirlinesReservation" partnerLink="DeltaAirlines" portType="ns1:FlightCallbackPT"
+                     operation="MakeReservationCallback" variable="TravelResponse"/>
+          </sequence>
+        </else>
+      </if>
+    </scope>
+    <wait name="Wait">
+      <for>'PT2M'</for>
+    </wait>
+    <extensionActivity>
+      <bpelx:signal name="SignalToMaster" label="reservationCompleted" to="master"/>
+    </extensionActivity>
+  </sequence>
+</process>
