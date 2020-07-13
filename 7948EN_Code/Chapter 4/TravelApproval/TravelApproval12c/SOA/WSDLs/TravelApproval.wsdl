@@ -23,7 +23,12 @@
     <portType name="TravelApprovalPT">
         <operation name="TravelApproval">
             <input message="tns:TravelRequestMessage"/>
-            <output message="aln:ReservationResponseMessage"/>
+            <!--output message="aln:ReservationResponseMessage"/-->
         </operation>
     </portType>
+    <portType name="ClientCallbackPT">
+		<operation name="ClientCallback">
+			<input message="aln:ReservationResponseMessage"/>
+		</operation>
+	</portType>
 </definitions>

@@ -1,32 +1,32 @@
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
-2020-07-06 18:24:02.382/1.718 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
-2020-07-06 18:24:02.410/1.746 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
-2020-07-06 18:24:02.411/1.747 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
-2020-07-06 18:24:02.413/1.749 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
-2020-07-06 18:24:02.413/1.749 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
-2020-07-06 18:24:02.414/1.750 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+2020-07-13 03:18:15.699/1.228 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2020-07-13 03:18:15.721/1.250 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2020-07-13 03:18:15.722/1.251 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2020-07-13 03:18:15.724/1.252 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2020-07-13 03:18:15.724/1.253 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2020-07-13 03:18:15.725/1.253 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
 
 Oracle Coherence Version 12.1.3.0.0 Build 52031
  Grid Edition: Development mode
 Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
 
-2020-07-06 18:24:02.506/1.842 Oracle Coherence GE 12.1.3.0.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.DefaultConfigurableCacheFactory
-Jul 06, 2020 6:24:02 PM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+2020-07-13 03:18:15.818/1.347 Oracle Coherence GE 12.1.3.0.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.DefaultConfigurableCacheFactory
+Jul 13, 2020 3:18:16 AM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
 INFO: XMLSchema incremental build enabled.
-Jul 06, 2020 6:24:03 PM com.collaxa.cube.CubeLogger info
+Jul 13, 2020 3:18:16 AM com.collaxa.cube.CubeLogger info
 INFO: validating "AmericanAirlines.bpel" ...
-Jul 06, 2020 6:24:03 PM oracle.integration.platform.blocks.PlatformConfigurationProvider getPlatformConfigurationProvider
+Jul 13, 2020 3:18:16 AM oracle.integration.platform.blocks.PlatformConfigurationProvider getPlatformConfigurationProvider
 WARNING: JRF is unable to determine the current application server platform.
-Jul 06, 2020 6:24:03 PM com.collaxa.cube.CubeLogger info
-INFO: Composed "AmericanAirlines" in 35.3 milliseconds [nodes 15=0+15, 425.5 nodes/sec]
-Jul 06, 2020 6:24:04 PM CubeProcessGenerator compile
+Jul 13, 2020 3:18:16 AM com.collaxa.cube.CubeLogger info
+INFO: Composed "AmericanAirlines" in 26.9 milliseconds [nodes 15=0+15, 557.2 nodes/sec]
+Jul 13, 2020 3:18:16 AM CubeProcessGenerator compile
 INFO: RegularFileObject[/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/AmericanAirlines/SCA-INF/bpel/AmericanAirlines/src/orabpel/americanairlines/L0.java] /Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/AmericanAirlines/SCA-INF/bpel/AmericanAirlines/src/orabpel/americanairlines/L0.java uses unchecked or unsafe operations.
-Jul 06, 2020 6:24:04 PM CubeProcessGenerator compile
+Jul 13, 2020 3:18:16 AM CubeProcessGenerator compile
 INFO: RegularFileObject[/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/AmericanAirlines/SCA-INF/bpel/AmericanAirlines/src/orabpel/americanairlines/L0.java] Recompile with -Xlint:unchecked for details.
-Jul 06, 2020 6:24:04 PM com.collaxa.cube.CubeLogger info
-INFO: Compiled "AmericanAirlines" in 725.7 milliseconds
-Jul 06, 2020 6:24:04 PM com.collaxa.cube.CubeLogger info
+Jul 13, 2020 3:18:16 AM com.collaxa.cube.CubeLogger info
+INFO: Compiled "AmericanAirlines" in 577.1 milliseconds
+Jul 13, 2020 3:18:16 AM com.collaxa.cube.CubeLogger info
 INFO: Gathered 4 files in 0.3 milliseconds
-Jul 06, 2020 6:24:04 PM com.collaxa.cube.CubeLogger info
-INFO: Packaged "AmericanAirlines" in 5.7 milliseconds
+Jul 13, 2020 3:18:16 AM com.collaxa.cube.CubeLogger info
+INFO: Packaged "AmericanAirlines" in 4.8 milliseconds

@@ -12,6 +12,9 @@
         <plnk:role name="travelService">
             <plnk:portType name="tns:TravelApprovalPT"/>
         </plnk:role>
+        <plnk:role name="travelServiceCustomer">
+             <plnk:portType name="tns:ClientCallbackPT" />
+	    </plnk:role>
     </plnk:partnerLinkType>
    
     <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>

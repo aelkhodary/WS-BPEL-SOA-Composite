@@ -36,7 +36,14 @@
       PARTNERLINKS                                                      
       List of services participating in this BPEL process               
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  --> 
+  -->
+  <bpelx:annotation>
+    <bpelx:analysis>
+      <bpelx:property name="wsdlFile">
+        <![CDATA[TicketReservationDetail.wsdl]]>
+      </bpelx:property>
+    </bpelx:analysis>
+  </bpelx:annotation>
   <partnerLinks>
     <!-- 
       The 'client' role represents the requester of this service. It is 
@@ -81,10 +88,8 @@
     
     <assign name="AssignReservationData">
       <copy>
-        <from variable="inputVariable" part="payload"
-              query="/client:flightReservation/client:confirmationData"/>
-        <to variable="ReservationData" part="confirmationData"
-            query="/ns1:confirmationData"/>
+        <from variable="inputVariable" part="payload" query="/client:flightReservation/client:confirmationData"/>
+        <to variable="ReservationData" part="confirmationData" query="/ns1:confirmationData"/>
       </copy>
     </assign>
     <scope name="Scope_3">

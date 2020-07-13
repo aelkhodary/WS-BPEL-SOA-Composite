@@ -32,14 +32,21 @@
          xmlns:socket="http://www.oracle.com/XSL/Transform/java/oracle.tip.adapter.socket.ProtocolTranslator"
          xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
          xmlns:ns3="http://xmlns.oracle.com/ias/pcbpel/NotificationService"
-         xmlns:ns4="http://packtpub.com/bpel/travel/reservation">
+         xmlns:ns4="http://packtpub.com/bpel/travel/reservation" xmlns:ess="http://xmlns.oracle.com/scheduler">
 
   <!-- 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       PARTNERLINKS                                                      
       List of services participating in this BPEL process               
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  --> 
+  -->
+  <bpelx:annotation>
+    <bpelx:analysis>
+      <bpelx:property name="wsdlFile">
+        <![CDATA[TravelApprovalRef.wsdl]]>
+      </bpelx:property>
+    </bpelx:analysis>
+  </bpelx:annotation>
   <partnerLinks>
     <!-- 
       The 'client' role represents the requester of this service. It is 
@@ -113,8 +120,7 @@
           <copy>
             <from variable="TravelRequest" part="travelRequest"
                   query="/client:TravelApproval/employee"/>
-            <to variable="EmployeeTravelStatusRequest" part="employee"
-                query="/ns2:employee"/>
+            <to variable="EmployeeTravelStatusRequest" part="employee" query="/ns2:employee"/>
           </copy>
         </assign>
         <invoke name="EmployeeTravelStatus"
@@ -232,8 +238,7 @@
               <assign name="AssignReservationData">
                 <copy>
                   <from expression='string("American")'/>
-                  <to variable="ReservationDataInput" part="payload"
-                      query="/ns4:flightReservation/ns4:airline"/>
+                  <to variable="ReservationDataInput" part="payload" query="/ns4:flightReservation/ns4:airline"/>
                 </copy>
                 <copy>
                   <from variable="FlightResponseAA" part="confirmationData"
@@ -244,10 +249,8 @@
               </assign>
               <assign name="AssignTravelResponse">
                 <copy>
-                  <from variable="FlightResponseAA" part="confirmationData"
-                        query="/ns1:confirmationData/FlightNo"/>
-                  <to variable="TravelResponse" part="reservationData"
-                      query="/ns1:reservationData/FlightNo"/>
+                  <from variable="FlightResponseAA" part="confirmationData" query="/ns1:confirmationData/FlightNo"/>
+                  <to variable="TravelResponse" part="reservationData" query="/ns1:reservationData/FlightNo"/>
                 </copy>
                 <copy>
                   <from variable="FlightResponseAA" part="confirmationData"
@@ -263,8 +266,7 @@
               <assign name="AssignReservationData">
                 <copy>
                   <from expression='string("Delta")'/>
-                  <to variable="ReservationDataInput" part="payload"
-                      query="/ns4:flightReservation/ns4:airline"/>
+                  <to variable="ReservationDataInput" part="payload" query="/ns4:flightReservation/ns4:airline"/>
                 </copy>
                 <copy>
                   <from variable="FlightResponseDA" part="confirmationData"

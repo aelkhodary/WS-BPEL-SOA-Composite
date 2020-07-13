@@ -1,4 +1,32 @@
-9.7.2010 19:00:11 com.collaxa.cube.CubeLogger info
-INFO: LibClasspath=C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\modules\commonj.sdo_2.1.0.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\modules\oracle.fabriccommon_11.1.1\fabric-common.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\modules\oracle.xdk_11.1.0\xmlparserv2.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-common.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-exts.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-thirdparty.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-validator.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-client.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-ext.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-runtime.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\oracle.soa.fabric.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\soa-infra-tools.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.ext_11.1.1\classes/;C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\soa\modules\oracle.soa.mgmt_11.1.1\soa-infra-mgmt.jar
-9.7.2010 19:00:11 com.collaxa.cube.CubeLogger info
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+2020-07-13 02:07:13.099/1.236 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2020-07-13 02:07:13.122/1.259 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2020-07-13 02:07:13.123/1.260 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2020-07-13 02:07:13.125/1.261 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2020-07-13 02:07:13.125/1.262 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2020-07-13 02:07:13.126/1.262 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+
+Oracle Coherence Version 12.1.3.0.0 Build 52031
+ Grid Edition: Development mode
+Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+
+2020-07-13 02:07:13.212/1.348 Oracle Coherence GE 12.1.3.0.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.DefaultConfigurableCacheFactory
+Jul 13, 2020 2:07:13 AM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.
+Jul 13, 2020 2:07:13 AM com.collaxa.cube.CubeLogger info
 INFO: validating "DeltaAirlines.bpel" ...
+Jul 13, 2020 2:07:13 AM oracle.integration.platform.blocks.PlatformConfigurationProvider getPlatformConfigurationProvider
+WARNING: JRF is unable to determine the current application server platform.
+Jul 13, 2020 2:07:13 AM com.collaxa.cube.CubeLogger info
+INFO: Composed "DeltaAirlines" in 29.7 milliseconds [nodes 15=0+15, 504.3 nodes/sec]
+Jul 13, 2020 2:07:14 AM CubeProcessGenerator compile
+INFO: RegularFileObject[/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalMasterDetail/DeltaAirlines/SCA-INF/bpel/DeltaAirlines/src/orabpel/deltaairlines/L0.java] /Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalMasterDetail/DeltaAirlines/SCA-INF/bpel/DeltaAirlines/src/orabpel/deltaairlines/L0.java uses unchecked or unsafe operations.
+Jul 13, 2020 2:07:14 AM CubeProcessGenerator compile
+INFO: RegularFileObject[/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalMasterDetail/DeltaAirlines/SCA-INF/bpel/DeltaAirlines/src/orabpel/deltaairlines/L0.java] Recompile with -Xlint:unchecked for details.
+Jul 13, 2020 2:07:14 AM com.collaxa.cube.CubeLogger info
+INFO: Compiled "DeltaAirlines" in 593.0 milliseconds
+Jul 13, 2020 2:07:14 AM com.collaxa.cube.CubeLogger info
+INFO: Gathered 4 files in 0.2 milliseconds
+Jul 13, 2020 2:07:14 AM com.collaxa.cube.CubeLogger info
+INFO: Packaged "DeltaAirlines" in 4.5 milliseconds

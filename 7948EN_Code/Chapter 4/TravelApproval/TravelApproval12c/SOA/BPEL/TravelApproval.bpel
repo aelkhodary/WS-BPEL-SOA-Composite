@@ -50,7 +50,8 @@
     -->
     
     <!--partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/-->
-    <partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"/>
+    <partnerLink name="travelapproval" partnerLinkType="ns1:travelLT" myRole="travelService"
+                 partnerRole="travelServiceCustomer"/>
     <partnerLink name="AmericanAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
     <partnerLink name="EmployeeTravelStatus" partnerLinkType="ns3:EmployeeTravelStatus"
@@ -156,8 +157,9 @@
         </else>
       </if>
     </scope>
+    <invoke name="clientCallBack" partnerLink="travelapproval"
+            inputVariable="TravelResponse" portType="ns1:ClientCallbackPT"
+            operation="ClientCallback" bpelx:invokeAsDetail="no"/>
     <!-- Generate reply to synchronous request -->
-    <reply name="replyOutput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
-           variable="TravelResponse"/>
   </sequence>
 </process>
