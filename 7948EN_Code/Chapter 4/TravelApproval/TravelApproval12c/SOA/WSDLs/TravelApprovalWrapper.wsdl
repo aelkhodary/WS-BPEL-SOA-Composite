@@ -17,7 +17,7 @@
             <plnk:portType name="tns:ClientCallbackPT"/>
         </plnk:role>
     </plnk:partnerLinkType>
-   
+    <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://packtpub.com/bpel/travel/"
@@ -30,6 +30,4 @@
             <xsd:import namespace="http://packtpub.com/service/airline/" schemaLocation="../Schemas/FlightReservationType.xsd"/>
         </xsd:schema>
     </wsdl:types>
-    
-     <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
 </wsdl:definitions>

@@ -84,6 +84,7 @@
     <variable name="FlightResponseAA" messageType="ns2:TravelResponseMessage"/>
     <variable name="TravelRequest_Event" element="ns1:TravelApproval"/>
     <variable name="TravelResponse_Event" element="ns2:reservationData"/>
+    <variable name="TravelResponse_Event_" element="ns2:reservationData"/>
   </variables>
 
   <!-- 
@@ -227,9 +228,8 @@
                 operation="sendEmailNotification"/>
       </sequence>
     </scope>
-    <invoke name="publishReservationSuccessfulEvent" bpelx:invokeAsDetail="no"/>
+    <invoke name="publishReservationSuccessfulEvent" bpelx:invokeAsDetail="no"
+            bpelx:eventName="ns4:ReservationSuccessful" inputVariable="TravelResponse_Event_"/>
     <!-- Generate reply to synchronous request -->
-    <reply name="replyOutput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
-           variable="TravelResponse"/>
   </sequence>
 </process>

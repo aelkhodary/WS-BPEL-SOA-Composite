@@ -103,6 +103,10 @@
             <dgm:item>NewTravelRequest</dgm:item>
         </dgm:subscribeEvents>
         <dgm:subscribePort name="" X="-10" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/circleEvent.png"/>
+        <dgm:publishEvents>
+            <dgm:item>ReservationSuccessful</dgm:item>
+        </dgm:publishEvents>
+        <dgm:publishPort name="" X="120" Y="115" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/circleEvent.png"/>
     </dgm:gComponent>
     <dgm:gWireLink source="TravelApproval/AmericanAirlines" target="AmericanAirlines" width="2">
         <dgm:gSegment X1="569" Y1="191" X2="593" Y2="191"/>

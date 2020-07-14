@@ -58,6 +58,8 @@
     <business-events>
       <subscribe xmlns:sub1="http://packtpub.com/events/travel/" name="sub1:NewTravelRequest"
                  consistency="oneAndOnlyOne" durable="true" runAsRoles="$publisher"/>
+      <publishes xmlns:pub1="http://packtpub.com/events/travel/" name="pub1:ReservationSuccessful" persistent="true"
+                 priority="4" timeToLive="0"/>
     </business-events>
   </component>
   <reference name="AmericanAirlines"
