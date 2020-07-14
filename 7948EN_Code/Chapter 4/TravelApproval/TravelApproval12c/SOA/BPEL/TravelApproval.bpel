@@ -102,12 +102,17 @@
         <empty name="Empty"/>
       </onMessage>
       <onMessage bpelx:eventName="ns4:NewTravelRequest" variable="TravelRequest_Event">
-        <assign name="publishEventPayload">
-          <copy>
-            <from>$TravelRequest_Event</from>
-            <to>$TravelRequest.travelRequest</to>
-          </copy>
-        </assign>
+        <sequence name="Sequence6">
+          <assign name="publishEventPayload">
+            <bpelx:annotation>
+              <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+            </bpelx:annotation>
+            <copy>
+              <from>ora:doXSLTransformForDoc("../Transformations/publishEventPayload.xsl", $TravelRequest_Event)</from>
+              <to variable="TravelRequest" part="travelRequest"/>
+            </copy>
+          </assign>
+        </sequence>
       </onMessage>
     </pick>
     <scope name="RetrieveEmployeeTravelStatus">

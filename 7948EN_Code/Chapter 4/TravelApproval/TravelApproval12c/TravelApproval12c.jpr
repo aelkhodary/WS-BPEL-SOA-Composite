@@ -288,4 +288,5 @@
    </hash>
    <value n="SCA_BPEL_FOLDER_PROPERTY_NAME" v="BPEL/"/>
    <value n="SOA_EVENT_FOLDER_NAME" v="Events/"/>
+   <value n="SOA_TRANSFORMATION_FOLDER_NAME" v="Transformations/"/>
 </jpr:project>
