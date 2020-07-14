@@ -30,5 +30,5 @@
             <xsd:import namespace="http://packtpub.com/service/airline/" schemaLocation="../Schemas/FlightReservationType.xsd"/>
         </xsd:schema>
     </wsdl:types>
-    <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
+     <wsdl:import namespace="http://packtpub.com/bpel/travel/" location="TravelApproval.wsdl"/>
 </wsdl:definitions>

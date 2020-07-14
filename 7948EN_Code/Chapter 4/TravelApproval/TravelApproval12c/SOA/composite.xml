@@ -25,6 +25,8 @@
   <import namespace="http://packtpub.com/events/travel/" location="Events/TravelEvents.edl" importType="edl"/>
   <import namespace="http://xmlns.oracle.com/ias/pcbpel/NotificationService"
           location="oramds:/soa/shared/workflow/NotificationService.wsdl" importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/TravelApproval/TravelApproval12c/DesplayResult"
+          location="WSDLs/DesplayResult.wsdl" importType="wsdl"/>
   <service name="travelapproval_ep" ui:wsdlLocation="WSDLs/TravelApprovalWrapper.wsdl">
     <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
     <binding.ws port="http://packtpub.com/bpel/travel/#wsdl.endpoint(travelapproval_ep/TravelApprovalPT_pt)">
@@ -61,6 +63,27 @@
       <publishes xmlns:pub1="http://packtpub.com/events/travel/" name="pub1:ReservationSuccessful" persistent="true"
                  priority="4" timeToLive="0"/>
     </business-events>
+  </component>
+  <component name="CatchEvent">
+    <implementation.mediator src="Mediators/CatchEvent.mplan"/>
+    <componentType>
+      <reference name="DesplayResultt.desplayresultt_client" ui:wsdlLocation="WSDLs/DesplayResult.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/TravelApproval/TravelApproval12c/DesplayResult#wsdl.interface(execute_ptt)"/>
+      </reference>
+    </componentType>
+    <business-events>
+      <subscribe xmlns:sub1="http://packtpub.com/events/travel/" name="sub1:ReservationSuccessful"
+                 consistency="oneAndOnlyOne" durable="true" runAsRoles="$publisher"/>
+    </business-events>
+  </component>
+  <component name="DesplayResultt" version="2.0">
+    <implementation.bpel src="BPEL/DesplayResultt.bpel"/>
+    <componentType>
+      <service name="desplayresultt_client" ui:wsdlLocation="WSDLs/DesplayResult.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/TravelApproval/TravelApproval12c/DesplayResult#wsdl.interface(execute_ptt)"/>
+      </service>
+    </componentType>
+    <property name="bpel.config.transaction" type="xs:string" many="false">required</property>
   </component>
   <reference name="AmericanAirlines"
              ui:wsdlLocation="http://localhost:8001/soa-infra/services/default/AmericanAirlines12c!1.0/WSDLs/AirLineRef.wsdl">
@@ -118,5 +141,9 @@
   <wire>
     <source.uri>TravelApproval/NotificationService1</source.uri>
     <target.uri>NotificationService1</target.uri>
+  </wire>
+  <wire>
+    <source.uri>CatchEvent/DesplayResultt.desplayresultt_client</source.uri>
+    <target.uri>DesplayResultt/desplayresultt_client</target.uri>
   </wire>
 </composite>
