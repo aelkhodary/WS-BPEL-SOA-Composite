@@ -10,7 +10,7 @@
       <partnerlink name="AmericanAirlines" x="974" y="21" side="right"/>
       <partnerlink name="DeltaAirlines" x="974" y="81" side="right"/>
    </partnerlink_locations>
-   <graph_layout viewport="0,51,1128,641" show_swimlanes="true">
+   <graph_layout viewport="0,0,1128,641" show_swimlanes="true">
       <layout_item collapsed="false" xpath="/process" type="process" showhandlers="true"/>
       <layout_item collapsed="false" xpath="/process/sequence" type="sequence"/>
       <layout_item collapsed="false" xpath="/process/sequence/pick" type="pick"/>

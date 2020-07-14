@@ -96,12 +96,12 @@
   <sequence name="main">
 
     <!-- Receive input from requestor. (Note: This maps to operation defined in TravelApproval.wsdl) -->
-    <pick name="Pick1">
+    <pick name="InitiatRequest" createInstance="yes">
       <onMessage variable="TravelRequest" partnerLink="travelapproval"
                  portType="ns1:TravelApprovalPT" operation="TravelApproval">
         <empty name="Empty"/>
       </onMessage>
-      <onMessage bpelx:name="receiveEvent" bpelx:eventName="ns4:NewTravelRequest" variable="TravelRequest_Event">
+      <onMessage bpelx:eventName="ns4:NewTravelRequest" variable="TravelRequest_Event">
         <assign name="publishEventPayload">
           <copy>
             <from>$TravelRequest_Event</from>
