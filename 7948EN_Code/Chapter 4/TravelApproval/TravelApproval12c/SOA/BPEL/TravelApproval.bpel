@@ -84,7 +84,6 @@
     <variable name="FlightResponseAA" messageType="ns2:TravelResponseMessage"/>
     <variable name="TravelRequest_Event" element="ns1:TravelApproval"/>
     <variable name="TravelResponse_Event" element="ns2:reservationData"/>
-    <variable name="TravelResponse_Event_" element="ns2:reservationData"/>
   </variables>
 
   <!-- 
@@ -98,7 +97,7 @@
 
     <!-- Receive input from requestor. (Note: This maps to operation defined in TravelApproval.wsdl) -->
     <pick name="Pick1">
-      <onMessage bpelx:name="receiveInput" variable="TravelRequest" partnerLink="travelapproval"
+      <onMessage variable="TravelRequest" partnerLink="travelapproval"
                  portType="ns1:TravelApprovalPT" operation="TravelApproval">
         <empty name="Empty"/>
       </onMessage>
@@ -228,8 +227,14 @@
                 operation="sendEmailNotification"/>
       </sequence>
     </scope>
+    <assign name="Published-Event-Payload">
+      <copy>
+        <from>$TravelResponse.reservationData</from>
+        <to>$TravelResponse_Event</to>
+      </copy>
+    </assign>
     <invoke name="publishReservationSuccessfulEvent" bpelx:invokeAsDetail="no"
-            bpelx:eventName="ns4:ReservationSuccessful" inputVariable="TravelResponse_Event_"/>
+            bpelx:eventName="ns4:ReservationSuccessful" inputVariable="TravelResponse_Event"/>
     <!-- Generate reply to synchronous request -->
   </sequence>
 </process>
