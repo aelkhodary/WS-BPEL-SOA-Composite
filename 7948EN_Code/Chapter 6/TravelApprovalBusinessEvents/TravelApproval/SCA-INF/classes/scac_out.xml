@@ -1,2 +1,143 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Faults/>
+<Faults>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:import[@location='http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl']</loc>
+      <line>17</line>
+      <col>30</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Load of wsdl "http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl" failed</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:import[@location='http://localhost:8001/soa-infra/services/default/DeltaAirlines/AirlineRef.wsdl']</loc>
+      <line>20</line>
+      <col>30</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Load of wsdl "http://localhost:8001/soa-infra/services/default/DeltaAirlines/AirlineRef.wsdl" failed</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:import[@location='EmployeeTravelStatus1.wsdl']</loc>
+      <line>22</line>
+      <col>68</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Load of wsdl "EmployeeTravelStatus1.wsdl" failed</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:reference[@name='EmployeeTravelStatus']</loc>
+      <line>67</line>
+      <col>59</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Cannot find Port Type "{http://packtpub.com/service/employee/}EmployeeTravelStatusPT" for "EmployeeTravelStatus" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='EmployeeTravelStatus']</loc>
+      <line>67</line>
+      <col>59</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "EmployeeTravelStatus":"{http://packtpub.com/service/employee/}EmployeeTravelStatusPTPort" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='EmployeeTravelStatus']</loc>
+      <line>67</line>
+      <col>59</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "EmployeeTravelStatus":"{http://packtpub.com/service/employee/}EmployeeTravelStatusPTPort" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='DeltaAirlines']</loc>
+      <line>90</line>
+      <col>111</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "DeltaAirlines":"{http://packtpub.com/service/airline/}FlightAvailabilityPT_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='DeltaAirlines']</loc>
+      <line>90</line>
+      <col>111</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "DeltaAirlines":"{http://packtpub.com/service/airline/}FlightAvailabilityPT_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='AmericanAirlines']</loc>
+      <line>76</line>
+      <col>114</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "AmericanAirlines":"{http://packtpub.com/service/airline/}FlightAvailabilityPT_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>warning</severity>
+      <loc>/ns:composite/ns:reference[@name='AmericanAirlines']</loc>
+      <line>76</line>
+      <col>114</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Failed to Find Binding "AmericanAirlines":"{http://packtpub.com/service/airline/}FlightAvailabilityPT_pt" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:component[@name='TravelApproval']</loc>
+      <line>34</line>
+      <col>36</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Cannot find Port Type "{http://packtpub.com/service/employee/}EmployeeTravelStatusPT" for "EmployeeTravelStatus" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc/>
+      <line>0</line>
+      <col/>
+      <file>TravelApproval.bpel</file>
+      <name>TravelApproval.bpel</name>
+      <fix>n/a</fix>
+      <msg>XML parsing failed because "oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace."</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='EmployeeTravelStatus']</loc>
+      <line>115</line>
+      <col>17</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Cannot find Port Type "{http://packtpub.com/service/employee/}EmployeeTravelStatusPT" for "TravelApproval" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:wire/ns:target.uri[.='EmployeeTravelStatus']</loc>
+      <line>115</line>
+      <col>17</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 6/TravelApprovalBusinessEvents/TravelApproval/composite.xml</name>
+      <fix/>
+      <msg>Cannot find Port Type "{http://packtpub.com/service/employee/}EmployeeTravelStatusPT" for "EmployeeTravelStatus" in WSDL Manager</msg>
+   </Fault>
+</Faults>

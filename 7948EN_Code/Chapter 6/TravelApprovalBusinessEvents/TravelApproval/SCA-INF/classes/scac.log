@@ -1,4 +1,275 @@
-9.7.2010 11:49:18 com.collaxa.cube.CubeLogger info
-INFO: LibClasspath=C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\modules\commonj.sdo_2.1.0.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\modules\oracle.fabriccommon_11.1.1\fabric-common.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\modules\oracle.xdk_11.1.0\xmlparserv2.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-common.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-exts.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-thirdparty.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-validator.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-client.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-ext.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-runtime.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\oracle.soa.fabric.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\soa-infra-tools.jar;C:\Oracle\Middleware\home_11gR1\jdeveloper\soa\modules\oracle.soa.ext_11.1.1\classes/;C:\Oracle\Middleware\home_11gR1\jdeveloper\..\oracle_common\soa\modules\oracle.soa.mgmt_11.1.1\soa-infra-mgmt.jar
-9.7.2010 11:49:18 com.collaxa.cube.CubeLogger info
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+2020-07-14 13:52:46.452/1.294 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2020-07-14 13:52:46.477/1.319 Oracle Coherence 12.1.3.0.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/Users/aelkhodary/Oracle/Middleware/Oracle_Home/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2020-07-14 13:52:46.478/1.320 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2020-07-14 13:52:46.480/1.322 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2020-07-14 13:52:46.481/1.323 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2020-07-14 13:52:46.482/1.324 Oracle Coherence 12.1.3.0.0 <D5> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+
+Oracle Coherence Version 12.1.3.0.0 Build 52031
+ Grid Edition: Development mode
+Copyright (c) 2000, 2014, Oracle and/or its affiliates. All rights reserved.
+
+2020-07-14 13:52:46.570/1.413 Oracle Coherence GE 12.1.3.0.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.DefaultConfigurableCacheFactory
+Jul 14, 2020 1:52:46 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:46 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/DeltaAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/DeltaAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:46 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from EmployeeTravelStatus1.wsdl due to: WSDLException: faultCode=INVALID_WSDL: Error reading import of file:/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter%206/TravelApprovalBusinessEvents/TravelApproval/EmployeeTravelStatus1.wsdl: oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException: faultCode=OTHER_ERROR: Failed to read WSDL from http://localhost:8001/EmployeeTravelStatus-app-v1/EmployeeTravelStatusPTPort?wsdl:WSDL not found
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from EmployeeTravelStatus1.wsdl due to: WSDLException: faultCode=INVALID_WSDL: Error reading import of file:/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter%206/TravelApprovalBusinessEvents/TravelApproval/EmployeeTravelStatus1.wsdl: oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException: faultCode=OTHER_ERROR: Failed to read WSDL from http://localhost:8001/EmployeeTravelStatus-app-v1/EmployeeTravelStatusPTPort?wsdl:WSDL not found
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/DeltaAirlines/TicketService?WSDL due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/DeltaAirlines/TicketService?WSDL is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/TicketService?WSDL due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/TicketService?WSDL is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM com.collaxa.cube.CubeLogger info
 INFO: validating "TravelApproval.bpel" ...
+Jul 14, 2020 1:52:47 PM oracle.integration.platform.blocks.PlatformConfigurationProvider getPlatformConfigurationProvider
+WARNING: JRF is unable to determine the current application server platform.
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM BpelParser assertPartnerLink
+SEVERE: 
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupPartnerLinkType(BPELComponentCompilationModel.java:163)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertPartnerLink(BpelParser.java:4688)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parsePartnerLink(BpelParser.java:1342)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:591)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM BpelParser assertPartnerLink
+SEVERE: 
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupPartnerLinkType(BPELComponentCompilationModel.java:163)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertPartnerLink(BpelParser.java:4688)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parsePartnerLink(BpelParser.java:1342)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:591)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM BpelParser assertPartnerLink
+SEVERE: 
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupPartnerLinkType(BPELComponentCompilationModel.java:163)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertPartnerLink(BpelParser.java:4688)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parsePartnerLink(BpelParser.java:1342)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:591)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM BpelParser assertPartnerLink
+SEVERE: 
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupPartnerLinkType(BPELComponentCompilationModel.java:163)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertPartnerLink(BpelParser.java:4688)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parsePartnerLink(BpelParser.java:1342)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:591)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM BpelParser assertPartnerLink
+SEVERE: 
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupPartnerLinkType(BPELComponentCompilationModel.java:163)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertPartnerLink(BpelParser.java:4688)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parsePartnerLink(BpelParser.java:1342)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:591)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+
+Jul 14, 2020 1:52:47 PM oracle.fabric.common.wsdl.WSDLManager loadWSDL
+WARNING: Failed to load WSDL from http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl due to: WSDLException: faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+Jul 14, 2020 1:52:47 PM BpelParser startElement
+SEVERE: 
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupMessage(BPELComponentCompilationModel.java:153)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertMessageType(BpelParser.java:4385)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseVariable(BpelParser.java:1857)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:611)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+
+Jul 14, 2020 1:52:47 PM BPELValidator validate
+SEVERE: bpel parsing failed for TravelApproval.bpel
+oracle.j2ee.ws.wsdl.LocalizedWSDLException: WSDLException (at http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl): faultCode=INVALID_WSDL: The document: http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl is not a wsdl file or does not have a root element of "definitions" in the "http://schemas.xmlsoap.org/wsdl/" namespace or the "http://www.w3.org/2004/08/wsdl" namespace.
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.parseDefinition(WSDLReaderImpl.java:818)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:746)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:694)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:686)
+	at oracle.j2ee.ws.wsdl.xml.WSDLReaderImpl.readWSDL(WSDLReaderImpl.java:215)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:311)
+	at oracle.fabric.common.wsdl.WSDLManager.loadWSDL(WSDLManager.java:408)
+	at oracle.fabric.composite.model.CompositeModel.loadImports(CompositeModel.java:493)
+	at oracle.fabric.composite.model.CompositeModel.getWSDLManager(CompositeModel.java:242)
+	at com.collaxa.cube.lang.compiler.ComponentCompilationModel.getWSDLManager(ComponentCompilationModel.java:61)
+	at com.collaxa.cube.lang.compiler.BPELComponentCompilationModel.lookupMessage(BPELComponentCompilationModel.java:153)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.assertMessageType(BpelParser.java:4385)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseVariable(BpelParser.java:1857)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.startElement(BpelParser.java:611)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:510)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parseElement(BpelParser.java:517)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:468)
+	at com.collaxa.cube.lang.compiler.bpel.BpelParser.parse(BpelParser.java:414)
+	at com.collaxa.cube.lang.compiler.bpel.BPELValidator.validate(BPELValidator.java:70)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.validate(BPEL1Processor.java:336)
+	at com.collaxa.cube.lang.compiler.BPEL1Processor.process(BPEL1Processor.java:161)
+	at oracle.fabric.bpel.bpelc.BPELComponentValidator.validate(BPELComponentValidator.java:86)
+	at oracle.soa.scac.ValidateComposite.validateComponentTypeServicesReferences(ValidateComposite.java:1067)
+	at oracle.soa.scac.ValidateComposite.doValidation0(ValidateComposite.java:522)
+	at oracle.soa.scac.ValidateComposite.doValidation(ValidateComposite.java:501)
+	at oracle.soa.scac.ValidateComposite.run0(ValidateComposite.java:219)
+	at oracle.soa.scac.ValidateComposite.run(ValidateComposite.java:200)
+	at oracle.soa.scac.ValidateComposite.main(ValidateComposite.java:192)
+

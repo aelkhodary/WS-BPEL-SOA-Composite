@@ -27,7 +27,9 @@
          xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
          xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
          xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
-         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="http://packtpub.com/service/employee/">
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="http://packtpub.com/service/employee/"
+         xmlns:ns4="http://packtpub.com/events/travel/"
+         xmlns:ns5="http://xmlns.oracle.com/ias/pcbpel/NotificationService">
 
   <!-- 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,6 +37,10 @@
       List of services participating in this BPEL process               
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   -->
+  <import namespace="http://packtpub.com/service/airline/" location="../Schemas/FlightReservationType.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
+  <import namespace="http://packtpub.com/bpel/travel/" location="../Schemas/TravelRequestType.xsd"
+          importType="http://www.w3.org/2001/XMLSchema"/>
   <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/Airline.wsdl"
           importType="http://schemas.xmlsoap.org/wsdl/"/>
   <import namespace="http://packtpub.com/bpel/travel/" location="../WSDLs/TravelApprovalWrapper.wsdl"
@@ -57,6 +63,8 @@
                  partnerRole="EmployeeTravelStatusPT"/>
     <partnerLink name="DeltaAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
+    <partnerLink name="NotificationService1" partnerLinkType="ns5:NotificationServiceLink"
+                 partnerRole="NotificationServiceProvider"/>
   </partnerLinks>
 
   <!-- 
@@ -74,6 +82,8 @@
     <variable name="FlightDetails" messageType="ns2:FlightTicketRequestMessage"/>
     <variable name="FlightResponseDA" messageType="ns2:TravelResponseMessage"/>
     <variable name="FlightResponseAA" messageType="ns2:TravelResponseMessage"/>
+    <variable name="TravelRequest_Event" element="ns1:TravelApproval"/>
+    <variable name="TravelResponse_Event" element="ns2:reservationData"/>
   </variables>
 
   <!-- 
@@ -86,8 +96,20 @@
   <sequence name="main">
 
     <!-- Receive input from requestor. (Note: This maps to operation defined in TravelApproval.wsdl) -->
-    <receive name="receiveInput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
-             variable="TravelRequest" createInstance="yes"/>
+    <pick name="Pick1">
+      <onMessage bpelx:name="receiveInput" variable="TravelRequest" partnerLink="travelapproval"
+                 portType="ns1:TravelApprovalPT" operation="TravelApproval">
+        <empty name="Empty"/>
+      </onMessage>
+      <onMessage bpelx:name="receiveEvent" bpelx:eventName="ns4:NewTravelRequest" variable="TravelRequest_Event">
+        <assign name="publishEventPayload">
+          <copy>
+            <from>$TravelRequest_Event</from>
+            <to>$TravelRequest.travelRequest</to>
+          </copy>
+        </assign>
+      </onMessage>
+    </pick>
     <scope name="RetrieveEmployeeTravelStatus">
       <variables>
         <variable name="EmpmployeeTravelStatusRequest" messageType="ns3:EmployeeTravelStatusRequestMessage"/>
@@ -156,6 +178,56 @@
         </else>
       </if>
     </scope>
+    <scope name="EmailNotification">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:email"></bpelx:pattern>
+      </bpelx:annotation>
+      <variables>
+        <variable name="varNotificationReq" messageType="ns5:EmailNotificationRequest"/>
+        <variable name="varNotificationResponse" messageType="ns5:ArrayOfResponse"/>
+        <variable name="NotificationServiceFaultVariable" messageType="ns5:NotificationServiceErrorMessage"/>
+      </variables>
+      <sequence name="Sequence5">
+        <assign name="EmailParamsAssign">
+          <copy>
+            <from>string('Default')</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:FromAccountName</query></to>
+          </copy>
+          <copy>
+            <from>string('')</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:Bcc</query></to>
+          </copy>
+          <copy>
+            <from>string('')</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:Cc</query></to>
+          </copy>
+          <copy>
+            <from>string('')</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:ReplyToAddress</query></to>
+          </copy>
+          <copy>
+            <from>'flight No '</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:Subject</query></to>
+          </copy>
+          <copy>
+            <from>$TravelRequest.travelRequest/mail/ns1:Address</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:To</query></to>
+          </copy>
+          <copy>
+            <from>'TravelApproval'</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:Content/ns5:ContentBody</query></to>
+          </copy>
+          <copy>
+            <from>string('text/html; charset=UTF-8')</from>
+            <to variable="varNotificationReq" part="EmailPayload"><query>ns5:Content/ns5:MimeType</query></to>
+          </copy>
+        </assign>
+        <invoke name="InvokeNotificationService" portType="ns5:NotificationService" partnerLink="NotificationService1"
+                inputVariable="varNotificationReq" outputVariable="varNotificationResponse"
+                operation="sendEmailNotification"/>
+      </sequence>
+    </scope>
+    <invoke name="publishReservationSuccessfulEvent" bpelx:invokeAsDetail="no"/>
     <!-- Generate reply to synchronous request -->
     <reply name="replyOutput" partnerLink="travelapproval" portType="ns1:TravelApprovalPT" operation="TravelApproval"
            variable="TravelResponse"/>
