@@ -32,6 +32,33 @@
   <property name="disableProcessSensors" type="xs:string" many="false">false</property>
   <component name="TravelApproval">
     <implementation.bpel src="TravelApproval.bpel"/>
+    <componentType xmlns="http://xmlns.oracle.com/sca/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:ui="http://xmlns.oracle.com/soa/designer/">
+      <service name="client" ui:wsdlLocation="TravelApprovalRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/bpel/travel/#wsdl.interface(TravelApprovalPT)"/>
+      </service>
+      <reference name="EmployeeTravelStatus" ui:wsdlLocation="EmployeeTravelStatus1.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/employee/#wsdl.interface(EmployeeTravelStatusPT)"/>
+      </reference>
+      <reference name="AmericanAirlines"
+                 ui:wsdlLocation="http://localhost:8001/soa-infra/services/default/AmericanAirlines/AirlineRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                        callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+      </reference>
+      <reference name="DeltaAirlines"
+                 ui:wsdlLocation="http://localhost:8001/soa-infra/services/default/DeltaAirlines/AirlineRef.wsdl">
+        <interface.wsdl interface="http://packtpub.com/service/airline/#wsdl.interface(FlightAvailabilityPT)"
+                        callbackInterface="http://packtpub.com/service/airline/#wsdl.interface(FlightCallbackPT)"/>
+      </reference>
+      <reference name="FlightTicketApproval.TaskService"
+                 ui:wsdlLocation="oramds:/soa/shared/workflow/TaskServiceInterface.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)"
+                        callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+      </reference>
+      <reference name="FlightTicketBAMAdapter" ui:wsdlLocation="FlightTicketBAMAdapter.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/pcbpel/adapter/bam/TravelApprovalBAM/TravelApproval/FlightTicketBAMAdapter#wsdl.interface(writetoBAM_ptt)"/>
+      </reference>
+    </componentType>
     <property name="configuration.monitorLocation" type="xs:string"
               many="false">TravelApproval.monitor</property>
     <property name="configuration.sensorLocation" type="xs:string" many="false">TravelApproval_sensor.xml</property>
@@ -40,6 +67,13 @@
   </component>
   <component name="FlightTicketApproval">
     <implementation.workflow src="FlightTicketApproval.task"/>
+    <componentType xmlns="http://xmlns.oracle.com/sca/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:ui="http://xmlns.oracle.com/soa/designer/">
+      <service name="TaskService" ui:wsdlLocation="oramds:/soa/shared/workflow/TaskServiceInterface.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskService)"
+                        callbackInterface="http://xmlns.oracle.com/bpel/workflow/taskService#wsdl.interface(TaskServiceCallback)"/>
+      </service>
+    </componentType>
   </component>
   <reference name="EmployeeTravelStatus"
              ui:wsdlLocation="EmployeeTravelStatus1.wsdl">

@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" xmlns:evidence="http://xmlns.oracle.com/bpel/workflow/TaskEvidenceService" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0" elementFormDefault="qualified" blockDefault="#all"><xsd:include schemaLocation="FlightTicketApprovalPayload.xsd" xmlns=""/>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" xmlns:evidence="http://xmlns.oracle.com/bpel/workflow/TaskEvidenceService" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="1.0" elementFormDefault="qualified" blockDefault="#all">
      
   <xsd:annotation>
     <xsd:appinfo>
@@ -12,7 +12,8 @@
 
     <import namespace="http://xmlns.oracle.com/bpel/workflow/TaskEvidenceService" schemaLocation="oramds:///soa/shared/workflow/TaskEvidenceService.xsd"/>
 
-    <element name="task">
+    <xsd:include schemaLocation="FlightTicketApprovalPayload.xsd" xmlns=""/>
+	<element name="task">
       <complexType>
         <sequence>
           <element name="title" type="xsd:string" minOccurs="0"/>
@@ -51,6 +52,10 @@
           <element name="ownerUserDisplayName" type="xsd:string" minOccurs="0"/>
           <element name="ownerGroupDisplayName" type="xsd:string" minOccurs="0"/>
           <element name="ownerRoleDisplayName" type="xsd:string" minOccurs="0"/>
+          <element name="customAttributes" type="tns:customAttributesType" minOccurs="0"/>
+          <element name="shortSummary" type="xsd:string" minOccurs="0"/>
+          <element name="longSummary" type="xsd:string" minOccurs="0"/>
+          <element name="notificationMode" type="tns:taskNotificationMode" minOccurs="0"/>
         </sequence>
       </complexType>
     </element>
@@ -67,6 +72,9 @@
         <element name="doesBelongToParent" type="xsd:boolean" minOccurs="0"/>
         <element name="isSystemComment" type="xsd:boolean" minOccurs="0"/>
         <element name="taskId" type="xsd:string" minOccurs="0"/>
+        <element name="commentScope" type="tns:scopeTypeEnum" minOccurs="0"/>
+        <element name="id" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="operation" type="tns:operationTypeEnum" minOccurs="0" maxOccurs="1"/>
       </sequence>
     </complexType>
 
@@ -93,7 +101,7 @@
         <element name="parentComponentInstanceId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         <element name="parentComponentInstanceRefId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         <element name="headerProperties" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-        <element name="invokedComponent" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <element name="invokedComponent" type="xsd:string" minOccurs="0" maxOccurs="1">        
           <annotation>
             <documentation>
               Records the component invoked to create this Task version instance.
@@ -101,6 +109,10 @@
             </documentation>
           </annotation>
         </element>
+        <element name="compositeCreatedTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <element name="componentInstanceId" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+        <element name="flowId" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+        <element name="scaPartitionId" type="xsd:long" minOccurs="0" maxOccurs="1"/>
     </sequence>
     </complexType>
 
@@ -136,8 +148,66 @@
         <element name="acl" type="xsd:string" minOccurs="0"/>
         <element name="doesBelongToParent" type="xsd:boolean" minOccurs="0"/>
         <element name="updatedDate" type="xsd:dateTime" minOccurs="0"/>
+        <element name="correlationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="size" type="xsd:long" minOccurs="0" maxOccurs="1"/>
+        <element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="storageType" type="tns:storageTypeEnum" minOccurs="0" maxOccurs="1"/>
+        <element name="ucmDocType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="securityGroup" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="account" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="revision" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="releaseDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+        <element name="expirationDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+        <element name="title" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="ucmMetadataItem" type="tns:ucmMetadataItemType" minOccurs="0" maxOccurs="unbounded"/>
+        <element name="attachmentScope" type="tns:scopeTypeEnum" minOccurs="0"/>
+	<element name="isContentEncoded" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+        <element name="updatedByDisplayName" type="xsd:string" minOccurs="0"/>
+        <element name="id" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="operation" type="tns:operationTypeEnum" minOccurs="0" maxOccurs="1"/>
       </sequence>
     </complexType>
+    
+    <complexType name="ucmMetadataItemType">
+      <sequence>
+        <element name="name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="value" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="type" type="tns:metadataTypeEnum" minOccurs="0" maxOccurs="1"/>
+      </sequence>
+    </complexType>
+
+    <simpleType name="scopeTypeEnum">
+      <restriction base="xsd:string">
+        <enumeration value="TASK"/>
+        <enumeration value="PARENT_TASK"/>
+        <enumeration value="BPM"/>
+        <enumeration value="CASE"/>
+      </restriction>
+    </simpleType>
+
+    <simpleType name="operationTypeEnum">
+      <restriction base="xsd:string">
+        <enumeration value="ADD"/>
+        <enumeration value="UPDATE"/>
+        <enumeration value="DELETE"/>
+      </restriction>
+    </simpleType>
+
+    <simpleType name="storageTypeEnum">
+      <restriction base="xsd:string">
+        <enumeration value="TASK"/>
+        <enumeration value="UCM"/>
+        <enumeration value="URL"/>
+      </restriction>
+    </simpleType>
+
+    <simpleType name="metadataTypeEnum">
+      <restriction base="xsd:string">
+        <enumeration value="DATE"/>
+        <enumeration value="STRING"/>
+        <enumeration value="NUMBER"/>
+      </restriction>
+    </simpleType>
 
     <element name="document" type="tns:documentType"/> 
     
@@ -255,6 +325,27 @@
         <element name="visibilityRuleConditionValues" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         <element name="isPartialTask" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
         <element name="organizationalUnitId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="tenantId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="listBuilderId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="caseId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="organizationalUnitName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="swimlaneRole" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="excludedParticipants" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="timersSuspended" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1"/>
+        <element name="tenantIdNumber" type="xsd:long" minOccurs="0" maxOccurs="1" default="-1"/>
+	<element name="taskAgeFromCreatedDate" type="xsd:duration" minOccurs="0" maxOccurs="1"/>
+        <element name="taskAgeFromAssignedDate" type="xsd:duration" minOccurs="0" maxOccurs="1"/>
+        <element name="taskTimeRemaining" type="xsd:duration" minOccurs="0" maxOccurs="1"/>
+        <element name="isDecomposedTask" type="xsd:boolean" default="false" minOccurs="0" maxOccurs="1"/>
+        <element name="formName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="decomposedTaskGroupInstanceId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="startTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <element name="stopTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+        <element name="workingDuration" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+        <element name="acquiredByDisplayName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="originalAssigneeUserDisplayName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="approversDisplayNames" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="imageUrl" type="xsd:string" minOccurs="0" maxOccurs="1"/>
       </sequence>
     </complexType>
 
@@ -274,6 +365,7 @@
         <element name="taskAggregationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
         <element name="action" type="tns:collectionTargetActionType" minOccurs="0" maxOccurs="1"/>
         <element name="status" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="displayName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
       </sequence>
     </complexType>
 
@@ -347,6 +439,7 @@
     <simpleType name="stateEnum">
       <restriction base="xsd:string">
         <enumeration value="ASSIGNED"/>
+        <enumeration value="ALERTED"/>
         <enumeration value="COMPLETED"/>
         <enumeration value="ERRORED"/>
         <enumeration value="EXPIRED"/>
@@ -413,6 +506,17 @@
       </restriction>
     </simpleType>
 
+    <complexType name="customAttributesType">
+      <sequence>
+        <element name="customAttributeString1" type="xsd:string" minOccurs="0"/>
+        <element name="customAttributeString2" type="xsd:string" minOccurs="0"/>
+        <element name="customAttributeNumber1" type="xsd:double" minOccurs="0"/>
+        <element name="customAttributeNumber2" type="xsd:double" minOccurs="0"/>
+        <element name="customAttributeDate1" type="xsd:dateTime" minOccurs="0"/>
+        <element name="customAttributeDate2" type="xsd:dateTime" minOccurs="0"/>
+      </sequence>
+    </complexType>
+    
     <complexType name="systemMessageAttributesType">
       <sequence>
         <element name="textAttribute1" type="xsd:string" minOccurs="0"/>
@@ -603,5 +707,24 @@
         <element name="type" type="tns:assignmentContextCreatorEnum" minOccurs="1" maxOccurs="1"/>
       </sequence>
     </complexType>
+
+    <element name="decomposeTaskInfo" type="tns:decomposeTaskInfoType"/>
+
+    <complexType name="decomposeTaskInfoType">
+      <sequence>
+        <element name="formName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="title" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <element name="priority" type="tns:priorityType" minOccurs="0" maxOccurs="1"/>
+        <element ref="tns:collectionTarget" minOccurs="0" maxOccurs="1"/>
+        <element name="comment" type="tns:commentType" minOccurs="0" maxOccurs="1"/>
+      </sequence>
+    </complexType>
+
+    <simpleType name="taskNotificationMode">
+      <restriction base="xsd:string">
+        <enumeration value="DEFAULT"/>
+        <enumeration value="NONE"/>
+      </restriction>
+    </simpleType>
 
 </schema>

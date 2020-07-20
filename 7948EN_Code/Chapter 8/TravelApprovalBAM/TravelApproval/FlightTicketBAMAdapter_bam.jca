@@ -1,4 +1,5 @@
-<adapter-config name="FlightTicketBAMAdapter" adapter="BAM Adapter" wsdlLocation="FlightTicketBAMAdapter.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+<?xml version="1.0" encoding="UTF-8"?>
+<adapter-config name="FlightTicketBAMAdapter" adapter="bam" wsdlLocation="FlightTicketBAMAdapter.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
   
   <connection-factory location="eis/bam/rmi" UIConnectionName="BAMServConn" adapterRef=""/>
   <endpoint-interaction portType="writetoBAM_ptt" operation="writetoBAM">
