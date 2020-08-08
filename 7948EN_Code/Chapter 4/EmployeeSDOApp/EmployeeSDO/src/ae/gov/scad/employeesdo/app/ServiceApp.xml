@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ServiceApp"
+  Version="12.1.3.10.8"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="ae.gov.scad.employeesdo.app.ServiceAppImpl"
+  ComponentInterface="ae.gov.scad.employeesdo.app.common.ServiceApp">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_deployType" Value="4096"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EmpROVO"
+    ViewObjectName="ae.gov.scad.employeesdo.query.EmpROVO"/>
+  <ViewUsage
+    Name="EmpVO"
+    ViewObjectName="ae.gov.scad.employeesdo.query.EmpVO"/>
+  <Remote
+    Name="ServiceInterface"
+    ServerClassName="ae.gov.scad.employeesdo.app.server.serviceinterface.EmployeeSDOServiceImpl"
+    ServerInterfaceName="ae.gov.scad.employeesdo.app.common.serviceinterface.EmployeeSDOService">
+    <DesignTime>
+      <Attr Name="_webServiceName" Value="EmployeeSDOService"/>
+      <Attr Name="_targetNameSpace" Value="/ae/gov/scad/employeesdo/app/common/"/>
+    </DesignTime>
+  </Remote>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="print"
+      MethodName="print">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+  <ServiceViewUsage
+    ViewUsageName="EmpVO"
+    CanCreate="true"
+    CanUpdate="true"
+    CanDelete="true"
+    CanMerge="true">
+    <DesignTime>
+      <Attr Name="_MergeOpName" Value="mergeEmpVO"/>
+      <Attr Name="_GetOpName" Value="getEmpVO"/>
+      <Attr Name="_ProcessOpName" Value="processEmpVO"/>
+      <Attr Name="_UpdateOpName" Value="updateEmpVO"/>
+      <Attr Name="_DeleteOpName" Value="deleteEmpVO"/>
+      <Attr Name="_FindOpName" Value="findEmpVO"/>
+      <Attr Name="_ProcessCSOpName" Value="processCSEmpVO"/>
+      <Attr Name="_CreateOpName" Value="createEmpVO"/>
+    </DesignTime>
+  </ServiceViewUsage>
+  <ServiceInterface
+    Name="__serviceInterface">
+    <Method
+      Name="print"
+      MethodName="print">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ServiceInterface>
+</AppModule>

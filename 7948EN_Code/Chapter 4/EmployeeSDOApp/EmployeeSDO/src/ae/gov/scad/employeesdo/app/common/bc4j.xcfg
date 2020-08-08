@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="ae.gov.scad.employeesdo.app.ServiceApp">
+      <AppModuleConfig name="ServiceAppLocal"/>
+      <AppModuleConfig name="ServiceAppShared"/>
+      <AppModuleConfig name="ServiceAppLocal1"/>
+      <AppModuleConfig name="ServiceAppShared1"/>
+      <AppModuleConfig name="ServiceAppLocal2"/>
+      <AppModuleConfig name="ServiceAppShared2"/>
+      <AppModuleConfig name="ServiceAppLocal3"/>
+      <AppModuleConfig name="ServiceAppShared3"/>
+      <AppModuleConfig name="ServiceAppLocal4"/>
+      <AppModuleConfig name="ServiceAppShared4"/>
+      <AppModuleConfig name="ServiceAppLocal5"/>
+      <AppModuleConfig name="ServiceAppShared5"/>
+      <AppModuleConfig name="ServiceAppLocal6"/>
+      <AppModuleConfig name="ServiceAppShared6"/>
+      <AppModuleConfig name="ServiceAppLocal7"/>
+      <AppModuleConfig name="ServiceAppShared7"/>
+      <AppModuleConfig name="ServiceAppLocal8"/>
+      <AppModuleConfig name="ServiceAppShared8"/>
+      <AppModuleConfig name="ServiceAppLocal9"/>
+      <AppModuleConfig name="ServiceAppShared9"/>
+      <AppModuleConfig name="EmployeeSDOService"/>
+      <AppModuleConfig name="ServiceApp"/>
+   </AppModuleConfigBag>
+</BC4JConfig>
