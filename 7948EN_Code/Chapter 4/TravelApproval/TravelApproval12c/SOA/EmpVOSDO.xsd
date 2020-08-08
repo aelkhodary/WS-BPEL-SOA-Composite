@@ -1,0 +1,31 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema elementFormDefault="qualified" sdoJava:package="ae.gov.scad.employeesdo.query.common"
+     targetNamespace="/ae/gov/scad/employeesdo/query/common/" xmlns="/ae/gov/scad/employeesdo/query/common/"
+     xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/" xmlns:sdoJava="commonj.sdo/java" xmlns:sdoXML="commonj.sdo/xml"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+    <xsd:import namespace="commonj.sdo/java" schemaLocation="sdoJava.xsd"/>
+    <xsd:import namespace="commonj.sdo/xml" schemaLocation="sdoXML.xsd"/>
+    <xsd:complexType name="EmpVOSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>Empno</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element minOccurs="0" name="Empno" sdoXML:dataType="sdoJava:IntObject" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="Ename" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Job" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Mgr" nillable="true" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="Hiredate" nillable="true" type="ns0:dateTime-Timestamp"/>
+            <xsd:element minOccurs="0" name="Sal" nillable="true" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" name="Comm" nillable="true" type="xsd:decimal"/>
+            <xsd:element minOccurs="0" name="Deptno" nillable="true" type="xsd:int"/>
+            <xsd:element minOccurs="0" name="DepartmentName" nillable="true" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TravelClass" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="empVOSDO" type="EmpVOSDO"/>
+</xsd:schema>

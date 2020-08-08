@@ -27,7 +27,8 @@
          xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
          xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
          xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
-         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="http://packtpub.com/service/employee/">
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap" xmlns:ns3="http://packtpub.com/service/employee/"
+         xmlns:ns4="/ae/gov/scad/employeesdo/app/common/" xmlns:ns5="/ae/gov/scad/employeesdo/query/common/">
 
   <!-- 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,6 +36,8 @@
       List of services participating in this BPEL process               
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   -->
+  <import namespace="/ae/gov/scad/employeesdo/app/common/" location="../WSDLs/EmployeeSDOService.wsdl"
+          importType="http://schemas.xmlsoap.org/wsdl/"/>
   <import namespace="http://packtpub.com/service/airline/" location="../WSDLs/Airline.wsdl"
           importType="http://schemas.xmlsoap.org/wsdl/"/>
   <import namespace="http://packtpub.com/bpel/travel/" location="../WSDLs/TravelApprovalWrapper.wsdl"
@@ -57,6 +60,7 @@
                  partnerRole="EmployeeTravelStatusPT"/>
     <partnerLink name="DeltaAirlines" partnerLinkType="ns2:flightLT" partnerRole="airlineService"
                  myRole="airlineCustomer"/>
+    <partnerLink name="EmployeeSDOService" partnerLinkType="ns4:EmployeeSDOService" partnerRole="EmployeeSDOService"/>
   </partnerLinks>
 
   <!-- 
@@ -74,6 +78,7 @@
     <variable name="FlightDetails" messageType="ns2:FlightTicketRequestMessage"/>
     <variable name="FlightResponseDA" messageType="ns2:TravelResponseMessage"/>
     <variable name="FlightResponseAA" messageType="ns2:TravelResponseMessage"/>
+    <variable name="EmployeeEV" element="ns5:empVOSDO" bpelx:entity.si="EmployeeSDOService"/>
   </variables>
 
   <!-- 

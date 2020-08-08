@@ -1,9 +1,29 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <Faults>
    <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:service[@name='travelapproval_ep']</loc>
+      <line>28</line>
+      <col>88</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/TravelApproval12c/SOA/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/TravelApproval12c/SOA/composite.xml</name>
+      <fix/>
+      <msg>Cannot find Port Type "{http://packtpub.com/bpel/travel/}TravelApprovalPT" for "travelapproval_ep" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
+      <severity>error</severity>
+      <loc>/ns:composite/ns:component[@name='TravelApproval']</loc>
+      <line>34</line>
+      <col>50</col>
+      <file>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/TravelApproval12c/SOA/composite.xml</file>
+      <name>/Users/aelkhodary/Documents/GitHub/WS-BPEL-SOA-Composite/7948EN_Code/Chapter 4/TravelApproval/TravelApproval12c/SOA/composite.xml</name>
+      <fix/>
+      <msg>Cannot find Port Type "{http://packtpub.com/bpel/travel/}TravelApprovalPT" for "travelapproval" in WSDL Manager</msg>
+   </Fault>
+   <Fault>
       <severity>warning</severity>
       <loc/>
-      <line>30</line>
+      <line>31</line>
       <col/>
       <file>BPEL/TravelApproval.bpel</file>
       <name>BPEL/TravelApproval.bpel</name>

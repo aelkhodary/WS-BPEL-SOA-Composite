@@ -1,0 +1,132 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<schema elementFormDefault="qualified" targetNamespace="/ae/gov/scad/employeesdo/app/common/types/"
+     xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/"
+     xmlns:ns1="/ae/gov/scad/employeesdo/query/common/" xmlns:tns="/ae/gov/scad/employeesdo/app/common/types/">
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JServiceCS.xsd"/>
+    <import namespace="/ae/gov/scad/employeesdo/query/common/" schemaLocation="EmpVOSDO.xsd"/>
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="BC4JService.xsd"/>
+    <element name="print">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="printResponse">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="getEmpVO">
+        <complexType>
+            <sequence>
+                <element name="empno" type="int"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="createEmpVO">
+        <complexType>
+            <sequence>
+                <element name="empVO" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="createEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateEmpVO">
+        <complexType>
+            <sequence>
+                <element name="empVO" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="deleteEmpVO">
+        <complexType>
+            <sequence>
+                <element name="empVO" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="deleteEmpVOResponse">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="mergeEmpVO">
+        <complexType>
+            <sequence>
+                <element name="empVO" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="mergeEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findEmpVO">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns0:FindCriteria"/>
+                <element name="findControl" type="ns0:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element maxOccurs="unbounded" minOccurs="0" name="result" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processEmpVO">
+        <complexType>
+            <sequence>
+                <element name="changeOperation" type="string"/>
+                <element maxOccurs="unbounded" minOccurs="0" name="empVO" type="ns1:EmpVOSDO"/>
+                <element name="processControl" type="ns0:ProcessControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element maxOccurs="unbounded" minOccurs="0" name="result" type="ns1:EmpVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processCSEmpVO">
+        <complexType>
+            <sequence>
+                <element name="processData" type="ns0:ProcessData"/>
+                <element name="processControl" type="ns0:ProcessControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processCSEmpVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:ProcessData"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

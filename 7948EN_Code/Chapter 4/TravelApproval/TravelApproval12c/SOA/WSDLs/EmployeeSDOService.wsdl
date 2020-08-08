@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+     name="EmployeeSDOService"
+     targetNamespace="/ae/gov/scad/employeesdo/app/common/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:tns="/ae/gov/scad/employeesdo/app/common/"
+     xmlns:types="/ae/gov/scad/employeesdo/app/common/types/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+         wsu:Id="fast_infoset_service_policy">
+        <wsOptfiser:OptimizedFastInfosetSerialization xmlns:wsOptfiser="http://java.sun.com/xml/ns/wsit/2006/09/policy/fastinfoset/service"
+             enabled="true"/>
+    </wsp:Policy>
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/ae/gov/scad/employeesdo/app/common/types/" schemaLocation="../EmployeeSDOService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="EmployeeSDOService_print">
+        <wsdl:part name="parameters" element="types:print"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_printResponse">
+        <wsdl:part name="parameters" element="types:printResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_getEmpVO">
+        <wsdl:part name="parameters" element="types:getEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_getEmpVOResponse">
+        <wsdl:part name="parameters" element="types:getEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_createEmpVO">
+        <wsdl:part name="parameters" element="types:createEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_createEmpVOResponse">
+        <wsdl:part name="parameters" element="types:createEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_updateEmpVO">
+        <wsdl:part name="parameters" element="types:updateEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_updateEmpVOResponse">
+        <wsdl:part name="parameters" element="types:updateEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_deleteEmpVO">
+        <wsdl:part name="parameters" element="types:deleteEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_deleteEmpVOResponse">
+        <wsdl:part name="parameters" element="types:deleteEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_mergeEmpVO">
+        <wsdl:part name="parameters" element="types:mergeEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_mergeEmpVOResponse">
+        <wsdl:part name="parameters" element="types:mergeEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_findEmpVO">
+        <wsdl:part name="parameters" element="types:findEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_findEmpVOResponse">
+        <wsdl:part name="parameters" element="types:findEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_processEmpVO">
+        <wsdl:part name="parameters" element="types:processEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_processEmpVOResponse">
+        <wsdl:part name="parameters" element="types:processEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_processCSEmpVO">
+        <wsdl:part name="parameters" element="types:processCSEmpVO"/>
+    </wsdl:message>
+    <wsdl:message name="EmployeeSDOService_processCSEmpVOResponse">
+        <wsdl:part name="parameters" element="types:processCSEmpVOResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="EmployeeSDOService">
+        <wsdl:documentation>
+            <ViewInstance CreateOpName="createEmpVO" DeleteOpName="deleteEmpVO" FindOpName="findEmpVO" GetOpName="getEmpVO"
+                 MergeOpName="mergeEmpVO" Name="EmpVO" ProcessCSOpName="processCSEmpVO" ProcessOpName="processEmpVO"
+                 SDOName="ns0:EmpVOSDO" UpdateOpName="updateEmpVO" xmlns="http://xmlns.oracle.com/adf/svc/metadata/"
+                 xmlns:ns0="/ae/gov/scad/employeesdo/query/common/"/>
+        </wsdl:documentation>
+        <wsdl:operation name="print">
+            <wsdl:input message="tns:EmployeeSDOService_print"/>
+            <wsdl:output message="tns:EmployeeSDOService_printResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_getEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_getEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="createEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_createEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_createEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_updateEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_updateEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_deleteEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_deleteEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="mergeEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_mergeEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_mergeEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="findEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_findEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_findEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_processEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_processEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processCSEmpVO">
+            <wsdl:input message="tns:EmployeeSDOService_processCSEmpVO"/>
+            <wsdl:output message="tns:EmployeeSDOService_processCSEmpVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="EmployeeSDOServiceSoapHttp" type="tns:EmployeeSDOService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#fast_infoset_service_policy"
+             wsdl:required="false"/>
+        <wsdl:operation name="print">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/print"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/getEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/createEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/updateEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/deleteEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="mergeEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/mergeEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="findEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/findEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/processEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processCSEmpVO">
+            <soap:operation soapAction="/ae/gov/scad/employeesdo/app/common/processCSEmpVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="EmployeeSDOService">
+        <wsdl:port name="EmployeeSDOServiceSoapHttpPort" binding="tns:EmployeeSDOServiceSoapHttp">
+            <soap:address location="http://localhost:8001/employee-app/EmployeeSDOService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

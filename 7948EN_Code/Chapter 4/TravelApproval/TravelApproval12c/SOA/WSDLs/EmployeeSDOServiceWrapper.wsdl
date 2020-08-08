@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="EmployeeSDOService"
+     targetNamespace="/ae/gov/scad/employeesdo/app/common/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:tns="/ae/gov/scad/employeesdo/app/common/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="EmployeeSDOService">
+        <plnk:role name="EmployeeSDOService" portType="tns:EmployeeSDOService"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="/ae/gov/scad/employeesdo/app/common/" location="EmployeeSDOService.wsdl"/>
+</wsdl:definitions>
